@@ -1,0 +1,11 @@
+Version 1.1
+
+- Administrators can now customize the broadcast tag to whatever they desire.
+- I had to do a few changes, the upgrade should be pretty quick for most of you. The main most notable change that needs accommodated is that user data is now stored in a folder called "userinfo". People didn't like that the names and configs were mixed up and I realized that this is "really really" bad because I guess in theory if somebody has the name "config", then that would screw up the config, xD. Anyway, yeah... so it's in a new folder. The path is ~/plugins/[Plugin Name]/userinfo. If the folder doesn't exist for you then please create it and move your player data into it. You can optionally not create the folder and wait for it to appear, my plugins all create player data when it's needed, and then move the player data into it.
+- Updated default colors because the first ones were totally random and I meant for them to suck and so I really wanted people to change them but I've been on many servers where people didn't and I'm like "oh god this is ugly" and I kind of feel bad, so yeah. If you want the color update just use the new "RestoreDefaultColors" option which will always force the default colors, yay! This option will also disable itself after run once so remember that if you change colors and don't like them, you will have to re-enable this setting in the future.
+- Removed name highlighting. It's a good idea but the feature needs work before I can fully implement it. It has issues and I'll work on fixing them another time.
+
+Version 1.0
+
+- Initiial release
+- No changelog, as one wasn't made at the time.
