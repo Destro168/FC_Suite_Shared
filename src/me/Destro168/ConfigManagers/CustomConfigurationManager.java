@@ -46,6 +46,10 @@ public class CustomConfigurationManager
 		if (target.equalsIgnoreCase("%BountySpecialCode%"))
 			loadBountyConfig(absoluteFolderPath);
 		
+		//If the special ban code, then we load up ban information.
+		else if (target.equalsIgnoreCase("%BanSpecialCode%"))
+			loadBanConfig(absoluteFolderPath);
+		
 		//Else we just load up the name as a member of user information.
 		else
 			loadPlayerConfig(absoluteFolderPath + "\\userinfo");
@@ -65,6 +69,13 @@ public class CustomConfigurationManager
 		//Set it to the same config to get the path.
         if (trueFile == null)
         	trueFile = new File(truePath, "bounties.yml");
+	}
+	
+	private void loadBanConfig(String truePath)
+	{
+		//Set it to the same config to get the path.
+        if (trueFile == null)
+        	trueFile = new File(truePath, "ipLogging.yml");
 	}
 	
     public void saveCustomConfig() 
