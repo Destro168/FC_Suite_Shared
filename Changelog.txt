@@ -1,3 +1,9 @@
+Version 1.2:
+
+- Updated the broadcast tag. No longer automatically adds parenthesis or colors.
+- Added new "errorBroadcastTag". It is the tag that will be shown for error broadcasts.
+- Updated restoreDefaultSettings to acommodate for the new tag layouts and if you would like to reset your colors and have everything be in line with the normal theme.
+
 Version 1.1
 
 - Administrators can now customize the broadcast tag to whatever they desire.

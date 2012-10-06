@@ -12,6 +12,8 @@ public class ConfigManager
 	
 	public String ultimatePrefixTagText;
 	public String broadcastTag;
+	public String errorBroadcastTag;
+	
 	public String primaryColor;
 	public String secondaryColor;
 	public String nameHighlightColor;
@@ -23,9 +25,6 @@ public class ConfigManager
 	public String primaryTag;
 	public String secondaryTag;
 	public String errorTag;
-	
-	public String announcementTag;
-	public String announcementTag2;
 	
 	public ConfigManager()
 	{
@@ -49,12 +48,19 @@ public class ConfigManager
 			config.set("RestoreDefaultColors", false);
 		}
 		
+		if (config.getDouble("Version") < 1.2)
+		{
+			config.set("Version", 1.2);
+			config.set("ErrorBroadcastTagText", "&8[&cBroadcast&8] &6");
+		}
+		
 		if (config.getBoolean("RestoreDefaultColors") == true)
 			restoreDefaultColors();
 		
 		//Load the configuration values.
 		ultimatePrefixTagText = config.getString("UltimatePrefixTagText");
 		broadcastTag = config.getString("BroadcastTagText");
+		errorBroadcastTag = config.getString("ErrorBroadcastTagText");
 		primaryColor = config.getString("PrimaryColor");
 		secondaryColor = config.getString("SecondaryColor");
 		nameHighlightColor = config.getString("NameHighlightColor");
@@ -76,15 +82,12 @@ public class ConfigManager
 			errorTag = "";
 		}
 		
-		announcementTag = bracketColor + "[" + primaryColor + broadcastTag + bracketColor + "] " + secondaryColor;
-		announcementTag2 = bracketColor + "[" + errorColor + broadcastTag + bracketColor + "] " + secondaryColor;
-		
 		FC_Suite_Shared.plugin.saveConfig();
 	}
 	
 	private void restoreDefaultColors()
 	{
-		config.set("Version", 1.0);
+		config.set("Version", 1.2);
 		config.set("UltimatePrefixTagText", "FC");
 		config.set("PrimaryColor", "&6");
 		config.set("SecondaryColor", "&e");
@@ -93,7 +96,8 @@ public class ConfigManager
 		config.set("PrimaryHeaderColor", "&b");
 		config.set("SecondaryHeaderColor", "&3");
 		config.set("BracketColor", "&8");
+		config.set("BroadcastTagText", "&8[&6Broadcast&8] &6");
+		config.set("ErrorBroadcastTagText", "&8[&cBroadcast&8] &6");
 		config.set("RestoreDefaultColors", false);
 	}
-	
 }

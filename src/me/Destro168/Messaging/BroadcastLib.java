@@ -18,26 +18,26 @@ public class BroadcastLib extends StringFormatter
 	
 	public boolean standardBroadcast(String msg)
 	{
-		Bukkit.getServer().broadcastMessage(cLib.parseColors(cm.announcementTag + msg));
+		Bukkit.getServer().broadcastMessage(cLib.parseColors(cm.broadcastTag + msg));
 		return true;
 	}
 	
 	public boolean standardBroadcast(String[] msg)
 	{
-		Bukkit.getServer().broadcastMessage(cLib.parseColors(cm.announcementTag + convertStringArrayToString(msg)));
+		Bukkit.getServer().broadcastMessage(cLib.parseColors(cm.broadcastTag + convertStringArrayToString(msg)));
 		return true;
 	}
 	
 	public boolean standardBroadcast(List<String> msg)
 	{
-		Bukkit.getServer().broadcastMessage(cLib.parseColors(cm.announcementTag + convertStringListToString(msg)));
+		Bukkit.getServer().broadcastMessage(cLib.parseColors(cm.broadcastTag + convertStringListToString(msg)));
 		return true;
 	}
 	
 	public boolean errorBroadcast(String msg)
 	{
 		ConfigManager cm = new ConfigManager();
-		Bukkit.getServer().broadcastMessage(cLib.parseColors(cm.announcementTag2 + msg));
+		Bukkit.getServer().broadcastMessage(cLib.parseColors(cm.errorBroadcastTag + msg));
 		return true;
 	}
 	
