@@ -143,6 +143,26 @@ public class DateManager
 		return timeInMillis;
 	}
 	
+	public long getFutureDate_Milliseconds(int int_Milliseconds)
+	{
+		//Set punishment end to future date
+		Calendar gc = new GregorianCalendar();
+		
+		//Referesh now.
+		Date now = new Date();
+		
+		//Set starting time
+		gc.setTime(now);
+		
+		//Add the time
+		gc.add(Calendar.MILLISECOND, int_Milliseconds);
+		
+		//Set the time in milliseconds.
+		timeInMillis = gc.getTimeInMillis();
+		
+		return timeInMillis;
+	}
+	
 	public long getFutureDate_Hours(int int_Hours)
 	{
 		//Set punishment end to future date

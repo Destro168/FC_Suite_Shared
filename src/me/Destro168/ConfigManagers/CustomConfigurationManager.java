@@ -2,10 +2,12 @@ package me.Destro168.ConfigManagers;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.List;
 import java.util.logging.Level;
 
 import me.Destro168.FC_Suite_Shared.FC_Suite_Shared;
 
+import org.bukkit.Location;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.configuration.file.YamlConfiguration;
 
@@ -16,6 +18,9 @@ public class CustomConfigurationManager
     private File trueFile;
 	private String target;
 	private String absoluteFolderPath;
+	private FileConfigPlus fcp;
+	
+	public FileConfiguration getConfig() { return config; }
 	
 	public CustomConfigurationManager(String absoluteFolderPath_, String target_) 
 	{
@@ -42,41 +47,13 @@ public class CustomConfigurationManager
 			return;
 		}
 		
-		//If they have the special bounty code, then we load bounty information.
-		if (target.equalsIgnoreCase("%BountySpecialCode%"))
-			loadBountyConfig(absoluteFolderPath);
-		
-		//If the special ban code, then we load up ban information.
-		else if (target.equalsIgnoreCase("%BanSpecialCode%"))
-			loadBanConfig(absoluteFolderPath);
-		
-		//Else we just load up the name as a member of user information.
-		else
-			loadPlayerConfig(absoluteFolderPath + "\\userinfo");
+		//Load up player file from target.
+        if (trueFile == null)
+        	trueFile = new File(absoluteFolderPath, target + ".yml");
 		
         config = YamlConfiguration.loadConfiguration(trueFile);
+        fcp = new FileConfigPlus(config);
     }
-	
-	private void loadPlayerConfig(String truePath)
-	{
-		//Set it to the same config to get the path.
-        if (trueFile == null)
-        	trueFile = new File(truePath, target + ".yml");
-	}
-	
-	private void loadBountyConfig(String truePath)
-	{
-		//Set it to the same config to get the path.
-        if (trueFile == null)
-        	trueFile = new File(truePath, "bounties.yml");
-	}
-	
-	private void loadBanConfig(String truePath)
-	{
-		//Set it to the same config to get the path.
-        if (trueFile == null)
-        	trueFile = new File(truePath, "ipLogging.yml");
-	}
 	
     public void saveCustomConfig() 
     {
@@ -108,10 +85,9 @@ public class CustomConfigurationManager
     	saveCustomConfig();
     }
     
-    /*
-    Get/Sets for:
-    Long, Int, String, Double, Boolean
-    */
+    /***************************************************
+    * Get/Sets for: Long, Int, String, Double, Boolean
+    ***************************************************/
     
     //Long
     public void set(final String field, final long x)
@@ -167,8 +143,53 @@ public class CustomConfigurationManager
     {
     	return config.getInt(field);
     }
+    
+    //Location
+    public void setLocation(final String field, String worldName, double x, double y, double z, float a, float b)
+    {
+    	fcp.setLocation(field, worldName, x, y, z, a, b); saveCustomConfig();
+    }
+    
+    public void setLocation(final String field, String worldName, double x, double y, double z)
+    {
+    	fcp.setLocation(field, worldName, x, y, z); saveCustomConfig();
+    }
+    
+    public Location getLocation(final String field)
+    {
+    	return fcp.getLocation(field);
+    }
+    
+    //Integer List
+    public void setList(final String field, final List<?> x)
+    {
+    	config.set(field, x); saveCustomConfig();
+    }
+    
+    public List<Integer> getIntegerList(final String field)
+    {
+    	return config.getIntegerList(field);
+    }
+    
+    public List<String> getStringList(final String field)
+    {
+    	return config.getStringList(field);
+    }
+    
+    public List<Double> getDoubleList(final String field)
+    {
+    	return config.getDoubleList(field);
+    }
 }
 
+
+//String List
+/*
+public void set(final String field, final List<String> x)
+{
+	config.set(field, x); saveCustomConfig();
+}
+*/
 
 
 
