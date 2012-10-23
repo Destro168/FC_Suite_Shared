@@ -2,7 +2,7 @@ package me.Destro168.Messaging;
 
 import java.util.List;
 
-import me.Destro168.ConfigManagers.ConfigManager;
+import me.Destro168.FC_Suite_Shared.ConfigManager;
 
 import org.bukkit.ChatColor;
 import org.bukkit.craftbukkit.command.ColouredConsoleSender;

@@ -1,6 +1,7 @@
 package me.Destro168.ConfigManagers;
 
-import me.Destro168.Conversions.StringToY;
+
+import me.Destro168.FC_Suite_Shared.StringToY;
 
 import org.bukkit.Location;
 import org.bukkit.configuration.file.FileConfiguration;

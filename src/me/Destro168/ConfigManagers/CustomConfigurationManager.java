@@ -90,96 +90,118 @@ public class CustomConfigurationManager
     ***************************************************/
     
     //Long
-    public void set(final String field, final long x)
+    public void set(String field, long x)
     {
     	config.set(field, x); saveCustomConfig();
     }
     
-    public Long getLong(final String field)
+    public Long getLong(String field)
     {
     	return config.getLong(field);
     }
     
     //String
-    public void set(final String field, final String x)
+    public void set(String field, String x)
     {
     	config.set(field, x); saveCustomConfig();
     }
 
-    public String getString(final String field)
+    public String getString(String field)
     {
     	return config.getString(field);
     }
     
     //Double
-    public void set(final String field, final double x)
+    public void set(String field, double x)
     {
     	config.set(field, x); saveCustomConfig();
     }
     
-    public double getDouble(final String field)
+    public double getDouble(String field)
     {
     	return config.getDouble(field);
     }
     
     //Boolean
-    public void set(final String field, final boolean x)
+    public void set(String field, boolean x)
     {
     	config.set(field, x); saveCustomConfig();
     }
     
-    public boolean getBoolean(final String field)
+    public boolean getBoolean(String field)
     {
     	return config.getBoolean(field);
     }
     
     //Int
-    public void set(final String field, final int x)
+    public void set(String field, int x)
     {
     	config.set(field, x); saveCustomConfig();
     }
     
-    public int getInt(final String field)
+    public int getInt(String field)
     {
     	return config.getInt(field);
     }
     
     //Location
-    public void setLocation(final String field, String worldName, double x, double y, double z, float a, float b)
+    public void setLocation(String field, String worldName, double x, double y, double z, float a, float b)
     {
     	fcp.setLocation(field, worldName, x, y, z, a, b); saveCustomConfig();
     }
     
-    public void setLocation(final String field, String worldName, double x, double y, double z)
+    public void setLocation(String field, String worldName, double x, double y, double z)
     {
     	fcp.setLocation(field, worldName, x, y, z); saveCustomConfig();
     }
     
-    public Location getLocation(final String field)
+    public Location getLocation(String field)
     {
     	return fcp.getLocation(field);
     }
     
-    //Integer List
-    public void setList(final String field, final List<?> x)
+    //Lists
+    public void setList(String field, List<?> x)
     {
     	config.set(field, x); saveCustomConfig();
     }
     
-    public List<Integer> getIntegerList(final String field)
+    public List<Integer> getIntegerList(String field)
     {
     	return config.getIntegerList(field);
     }
     
-    public List<String> getStringList(final String field)
+    public List<String> getStringList(String field)
     {
     	return config.getStringList(field);
     }
     
-    public List<Double> getDoubleList(final String field)
+    public List<Double> getDoubleList(String field)
     {
     	return config.getDoubleList(field);
     }
+    
+    public List<Byte> getByteList(String field)
+    {
+    	return config.getByteList(field);
+    }
+    
+    //Custom List
+    public void setCustomList(String field, List<?> x)
+   	{
+    	if (x.get(0) == null)
+    	{
+    		set(field, "");
+    		return;
+   		}
+    	
+   		String a = String.valueOf(x.get(0));
+   		
+   		for (int i = 1; i < x.size(); i++) 
+   			a += "," + String.valueOf(x.get(i));
+   		
+   		set(field, a); 
+   	}
 }
 
 

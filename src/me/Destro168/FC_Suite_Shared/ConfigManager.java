@@ -1,7 +1,5 @@
-package me.Destro168.ConfigManagers;
+package me.Destro168.FC_Suite_Shared;
 
-import me.Destro168.FC_Suite_Shared.ColorLib;
-import me.Destro168.FC_Suite_Shared.FC_Suite_Shared;
 
 import org.bukkit.configuration.file.FileConfiguration;
 
@@ -52,6 +50,11 @@ public class ConfigManager
 		{
 			config.set("Version", 1.2);
 			config.set("ErrorBroadcastTagText", "&8[&cBroadcast&8] &6");
+		}
+		
+		if (config.getDouble("Version") < 1.4)
+		{
+			config.set("Version", 1.4);
 		}
 		
 		if (config.getBoolean("RestoreDefaultColors") == true)

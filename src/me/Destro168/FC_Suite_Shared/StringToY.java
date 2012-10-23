@@ -1,4 +1,4 @@
-package me.Destro168.Conversions;
+package me.Destro168.FC_Suite_Shared;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -109,6 +109,27 @@ public class StringToY
 		
 		//Add the final integer.
 		d.add(Integer.valueOf(returnMergedCharacters(lastPos, c.length, c)));
+		
+		return d;
+	}
+	
+	public List<Byte> getByteListFromString(String xArg)
+	{
+		List<Byte> d = new ArrayList<Byte>();
+		char[] c = xArg.toCharArray();
+		int lastPos = 0;
+		
+		for (int i = 0; i < c.length; i++)
+		{
+			if (c[i] == ',')
+			{
+				d.add(Byte.valueOf(returnMergedCharacters(lastPos, i, c)));
+				lastPos = i + 1;
+			}
+		}
+		
+		//Add the final integer.
+		d.add(Byte.valueOf(returnMergedCharacters(lastPos, c.length, c)));
 		
 		return d;
 	}

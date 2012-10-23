@@ -12,6 +12,7 @@ public class PermissionManager
 	public boolean isConsole;
 	
 	public boolean permissionsEnabled() { if (isConsole == true) return true; else return (permission != null); }
+	public Permission getPermission() { setupPermissions(); return permission; }
 	
 	public PermissionManager(Player player_) 
 	{
