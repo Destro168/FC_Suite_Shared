@@ -9,6 +9,7 @@ import org.bukkit.plugin.java.JavaPlugin;
 public class FC_Suite_Shared extends JavaPlugin
 {
 	public static FC_Suite_Shared plugin;
+	public static SuiteConfig sc;
 	
 	@Override
 	public void onDisable() 
@@ -29,6 +30,9 @@ public class FC_Suite_Shared extends JavaPlugin
 			return;
 		}
 		
+		//This is the suite config.
+		sc = new SuiteConfig();
+		
 		//Log success.
 		this.getLogger().info("Successfully found Vault. Enabled Succesffully");
 	}
@@ -40,9 +44,7 @@ public class FC_Suite_Shared extends JavaPlugin
         RegisteredServiceProvider<Permission> permissionProvider = FC_Suite_Shared.plugin.getServer().getServicesManager().getRegistration(net.milkbowl.vault.permission.Permission.class);
         
         if (permissionProvider != null) 
-        {
             permission = permissionProvider.getProvider();
-        }
         
         return (permission != null);
     }

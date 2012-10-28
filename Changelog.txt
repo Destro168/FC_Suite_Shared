@@ -1,3 +1,16 @@
+Version 1.6:
+
+- All plugins using 1.6 of FC_Suite_Shared built on CB DEV Build #2406 1.4.2-R0.1
+- IMPORTANT - You MUST, make a backup before attempt an upgrade for plugins to 1.6. The following feature I'm about to describe is highly experimental. So basically it came to my attention that folders were being made called FC_Bans\userinfo, FC_Rpg\userinfo, etc. This is NOT what I intended of my plugins. The userinfo folder should be a sub-directory of the plugins data folder. If this isn't happening to you, then you can ignore this message. So I have added in code which will attempt to create the userinfo sub-directory if it doesn't exist. This means that if my fix works, your version of the plugin will create a new userinfo folder and be unable to find the old userinfo folder. This is why you need a backup. Put the information from your old userinfo folder into the newly generated userinfo folder and restart your server. This will cause the plugin to be able to load up the old information. ADDITIONALLY, there is a new settings called "debug". If my previous solution doesn't work, and you would like to help me out infinitely, PLEASe, PLEASE, PLEASE set debug to true, run your server, and see if the userinfo folder is generated as a sub-directory. If this works, please tell me so I can apply a permanent fix! I will put in my signature if a fix was found so feel free to check that out first before pming me! Thank you for your time!
+
+Version 1.5:
+
+- Heavy upgrade to color system to allow for new color coding tags. Brings back player name coloring and adds in sophisticated money formatting. Update settings to your liking. This is incomplete and all plugins are being updated to take advantage of this new coloring system.
+
+Version 1.4:
+
+- Class location changes.
+
 Version 1.3:
 
 - Built CB release - Build #2377 - CB 1.3.2-R2.0

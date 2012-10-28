@@ -47,10 +47,20 @@ public class CustomConfigurationManager
 			return;
 		}
 		
+		if (FC_Suite_Shared.sc.getDebug() == true)
+			absoluteFolderPath = absoluteFolderPath.replaceAll("\\", "//");
+		
+		//Attempt to create a new folder for the path if it doesn't exist.
+		File f = new File(absoluteFolderPath);
+		
+		if (!f.exists())
+			f.mkdir();
+		
+		
 		//Load up player file from target.
         if (trueFile == null)
         	trueFile = new File(absoluteFolderPath, target + ".yml");
-		
+        
         config = YamlConfiguration.loadConfiguration(trueFile);
         fcp = new FileConfigPlus(config);
     }
@@ -148,11 +158,6 @@ public class CustomConfigurationManager
     public void setLocation(String field, String worldName, double x, double y, double z, float a, float b)
     {
     	fcp.setLocation(field, worldName, x, y, z, a, b); saveCustomConfig();
-    }
-    
-    public void setLocation(String field, String worldName, double x, double y, double z)
-    {
-    	fcp.setLocation(field, worldName, x, y, z); saveCustomConfig();
     }
     
     public Location getLocation(String field)

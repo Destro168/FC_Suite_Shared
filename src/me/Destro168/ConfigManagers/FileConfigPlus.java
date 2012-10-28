@@ -1,6 +1,5 @@
 package me.Destro168.ConfigManagers;
 
-
 import me.Destro168.FC_Suite_Shared.StringToY;
 
 import org.bukkit.Location;
@@ -13,11 +12,6 @@ public class FileConfigPlus
 	public FileConfigPlus(FileConfiguration config_)
 	{
 		config = config_;
-	}
-	
-	public void setLocation(String field, String world, double x, double y, double z)
-	{
-		config.set(field, world + "," + x + "," + y + "," + z);
 	}
 	
 	public void setLocation(String field, String world, double x, double y, double z, float yaw, float pitch)
