@@ -70,6 +70,28 @@ public class StringToY
 		return new Location(world,x2,y2,z2,yaw2,pitch2);
 	}
 	
+	public List<String> getStringListFromString(String xArg)
+	{
+		List<String> d = new ArrayList<String>();
+		char[] c = xArg.toCharArray();
+		int lastPos = 0;
+		
+		for (int i = 0; i < c.length; i++)
+		{
+			if (c[i] == ',')
+			{
+				d.add(returnMergedCharacters(lastPos, i, c));
+				
+				lastPos = i + 1;
+			}
+		}
+		
+		//Add final double.
+		d.add(returnMergedCharacters(lastPos, c.length, c));
+		
+		return d;
+	}
+	
 	public List<Double> getDoubleListFromString(String xArg)
 	{
 		List<Double> d = new ArrayList<Double>();

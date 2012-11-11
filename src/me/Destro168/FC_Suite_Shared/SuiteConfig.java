@@ -75,6 +75,12 @@ public class SuiteConfig
 			config.set("debug", "false");
 		}
 		
+		if (config.getDouble("Version") < 1.81)
+		{
+			config.set("Version", 1.81);
+			config.set("debug", "false");
+		}
+		
 		if (config.getBoolean("RestoreDefaultColors") == true)
 			restoreDefaultColors();
 		

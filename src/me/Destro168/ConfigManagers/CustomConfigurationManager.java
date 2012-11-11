@@ -47,15 +47,11 @@ public class CustomConfigurationManager
 			return;
 		}
 		
-		if (FC_Suite_Shared.sc.getDebug() == true)
-			absoluteFolderPath = absoluteFolderPath.replaceAll("\\", "//");
-		
 		//Attempt to create a new folder for the path if it doesn't exist.
 		File f = new File(absoluteFolderPath);
 		
 		if (!f.exists())
 			f.mkdir();
-		
 		
 		//Load up player file from target.
         if (trueFile == null)
@@ -194,6 +190,12 @@ public class CustomConfigurationManager
     //Custom List
     public void setCustomList(String field, List<?> x)
    	{
+    	if (x == null)
+    	{
+    		set(field, null);
+    		return;
+    	}
+    	
     	if (x.get(0) == null)
     	{
     		set(field, "");

@@ -24,10 +24,11 @@ public class NameMatcher
 		
 		for (OfflinePlayer player: Bukkit.getServer().getOfflinePlayers())
 		{
-			if (player.getName().contains(name))
-			{
+			if (player.getName().equalsIgnoreCase(name))
 				return player.getName();
-			}
+			
+			if (player.getName().contains(name))
+				return player.getName();
 		}
 		
 		if (Bukkit.getServer().matchPlayer(name) != null)

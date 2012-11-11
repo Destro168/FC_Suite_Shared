@@ -1,3 +1,25 @@
+Version 1.81:
+
+- 1.6/1.7/1.8/1.81 versions all compatible.
+
+FC_Bans/FC_Rpg/FC_Bounties:
+- Fixed buggy sub-directory creation for all plugins thanks to a very nice person giving me full access to his server (ftp/console, etc.). I had to reverse the slashes! This means that you now HAVE to create a userinfo subdirectory inside of your plugins folder (where the config is) and put all past user data into it! This is assuming you are running a linux box of course though. Windows users should be fine.
+
+FC_Rpg:
+- The sub-directory fix also applies to the guild sub-directory, so move your guild sub-directory into your ~/plugins/FC_Rpg sub-directory. Finally fixed! :D
+
+- Removed lines of code that debug setting effected. Debug setting will be set to false on update. Rejoice! Yayayay!
+
+Version 1.8:
+
+- 1.6/1.7/1.8 versions all compatible.
+- Added null check to custom list storing.
+
+Version 1.7:
+
+- 1.6 + 1.7 are compatible with all FC plugins running either or.
+- Lowercase names are now able to be caught when players are offline. This means that you can ban players that are offline and the casing of their name will not matter. This changes applies to all instances of name matching for my plugins (lots and lots of name matching calls).
+
 Version 1.6:
 
 - All plugins using 1.6 of FC_Suite_Shared built on CB DEV Build #2406 1.4.2-R0.1
