@@ -209,6 +209,17 @@ public class CustomConfigurationManager
    		
    		set(field, a); 
    	}
+    
+    //Object
+    public void set(String field, Object o)
+    {
+    	config.set(field, o);
+    }
+    
+    public Object get(String field)
+    {
+    	return config.get(field);
+    }
 }
 
 

@@ -1,0 +1,5 @@
+~ FC_Suite_Shared Permissions ~
+
+FC_Suite.owner -> Permission for owners. Only used in FC_Rpg currently.
+FC_Suite.admin -> Gives admin permission for all FC plugins.
+FC_Suite.mod -> Gives moderator permissions for all FC plugins. Currently unused.

@@ -39,9 +39,10 @@ public class ColorLib
 	{
 		line = color + line;
 		SuiteConfig cm = new SuiteConfig();
-		line = line.replaceAll("(&p)([a-zA-Z0-9-]*)(&p)", cm.playerNameColor + "$2" + color);	//Name color
-		line = line.replaceAll("(&q)([0-9]+(\\.[0-9][0-9]?)?)(&q)", cm.moneyColor + cm.moneyPrefix + "$2" + cm.moneySuffix + color); //Money color.
-		line = line.replaceAll("(&r)([0-9]+(\\.[0-9][0-9]?)?)(&r)", cm.bracketColor + "[" + color + "$2" + cm.bracketColor + "]" + color); //Time color.
+		
+		line = line.replaceAll("(&p)(.+?)(&p)", cm.playerNameColor + "$2" + color);	//Name color
+		line = line.replaceAll("(&q)(.+?)(&q)", cm.moneyColor + cm.moneyPrefix + "$2" + cm.moneySuffix + color); //Money color.
+		line = line.replaceAll("(&r)(.+?)(&r)", cm.bracketColor + "[" + color + "$2" + cm.bracketColor + "]" + color); //Time color.
 		line = parse(line);
 		return line;
 	}

@@ -1,6 +1,16 @@
+~ FC_Suite_Shared Changelog ~
+
+Version 1.82:
+
+General:
+- Built on CB Build #2497 1.4.5-R0.3
+- 1.6 to 1.82 all compatible
+- Updated the regex strings to now properly do what I wanted. Still new to regex but this will work now perfectly. :)
+- Updated the package for all plugins to be a bit more organized. Now you can unzip the jar to see a "docs" folder which will have a lot of useful plugin information. :)
+
 Version 1.81:
 
-- 1.6/1.7/1.8/1.81 versions all compatible.
+- 1.6 to 1.81 versions all compatible.
 
 FC_Bans/FC_Rpg/FC_Bounties:
 - Fixed buggy sub-directory creation for all plugins thanks to a very nice person giving me full access to his server (ftp/console, etc.). I had to reverse the slashes! This means that you now HAVE to create a userinfo subdirectory inside of your plugins folder (where the config is) and put all past user data into it! This is assuming you are running a linux box of course though. Windows users should be fine.
