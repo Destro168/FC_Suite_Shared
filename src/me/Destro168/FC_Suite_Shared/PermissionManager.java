@@ -39,7 +39,7 @@ public class PermissionManager
         
         if (permissionProvider == null)
         {
-        	FC_Suite_Shared.plugin.getLogger().info("Permission Provider Not Found. [Ignore These Mostly]");
+        	FC_Suite_Shared.plugin.getLogger().info("PP Not Found.");
         	return;
         }
         

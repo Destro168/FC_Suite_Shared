@@ -1,4 +1,4 @@
-package me.Destro168.TimeUtils;
+package me.Destro168.FC_Suite_Shared.TimeUtils;
 
 import java.util.Calendar;
 import java.util.Date;

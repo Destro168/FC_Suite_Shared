@@ -3,7 +3,7 @@ package me.Destro168.FC_Suite_Shared;
 import java.util.HashMap;
 import java.util.Map;
 
-import me.Destro168.Messaging.MessageLib;
+import me.Destro168.FC_Suite_Shared.Messaging.MessageLib;
 
 import org.bukkit.Location;
 import org.bukkit.entity.Player;

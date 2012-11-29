@@ -1,4 +1,4 @@
-package me.Destro168.Messaging;
+package me.Destro168.FC_Suite_Shared.Messaging;
 
 import java.util.List;
 

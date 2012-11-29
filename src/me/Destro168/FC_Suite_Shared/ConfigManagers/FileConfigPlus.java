@@ -1,4 +1,4 @@
-package me.Destro168.ConfigManagers;
+package me.Destro168.FC_Suite_Shared.ConfigManagers;
 
 import me.Destro168.FC_Suite_Shared.StringToY;
 

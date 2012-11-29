@@ -1,6 +1,6 @@
 name: FC_Suite_Shared
 main: me.Destro168.FC_Suite_Shared.FC_Suite_Shared
-version: 1.82
+version: 2.0
 description: Manages various FC plugins.
 softdepend: [Essentials]
 depend: [Vault]

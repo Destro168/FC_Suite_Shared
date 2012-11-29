@@ -1,17 +1,16 @@
 package me.Destro168.FC_Suite_Shared;
 
-import org.bukkit.configuration.file.FileConfiguration;
+import me.Destro168.FC_Suite_Shared.ConfigManagers.FileConfigurationWrapper;
 
 public class SuiteConfig 
 {
-	private FileConfiguration config;
+	private FileConfigurationWrapper fcw;
 	private ColorLib cLib = new ColorLib();
 	
 	public String ultimatePrefixTagText;
 	public String broadcastTag;
 	public String adminBroadcastTag;
 	public String errorBroadcastTag;
-	
 	public String primaryColor;
 	public String secondaryColor;
 	public String moneyColor;
@@ -22,12 +21,17 @@ public class SuiteConfig
 	public String bracketColor;
 	public String moneyPrefix;
 	public String moneySuffix;
-	
 	public String primaryTag;
 	public String secondaryTag;
 	public String errorTag;
 	
-	public boolean getDebug() { return config.getBoolean("debug"); }
+	//Sets
+	public void setVersion(double x) { fcw.set("Version", x); }
+	public void setDebug(boolean x) { fcw.set("Debug", x); }
+	
+	//Gets
+	public double getVersion() { return fcw.getDouble("Version"); }
+	public boolean getDebug() { return fcw.getBoolean("Debug"); }
 	
 	public SuiteConfig()
 	{
@@ -36,68 +40,43 @@ public class SuiteConfig
 	
 	public void handleConfig()
 	{
-		//Next we load up colors from the configuration file.
-		config = FC_Suite_Shared.plugin.getConfig();
+		fcw = new FileConfigurationWrapper(FC_Suite_Shared.plugin.getDataFolder().getAbsolutePath(), "config");
 		
-		if (config.getDouble("Version") < 1.0)
+		if (getVersion() < 1.82)
 		{
+			setVersion(1.82);
 			restoreDefaultColors();
+			setDebug(false);
 		}
 		
-		if (config.getDouble("Version") < 1.1)
+		if (getVersion() < 2.1)
 		{
-			config.set("Version", 1.1);
-			config.set("BroadcastTagText", "Broadcast");
-			config.set("RestoreDefaultColors", false);
+			setVersion(2.1);
+			setDebug(true);
 		}
 		
-		if (config.getDouble("Version") < 1.2)
-		{
-			config.set("Version", 1.2);
-			config.set("ErrorBroadcastTagText", "&8[&cBroadcast&8] &6");
-		}
-		
-		if (config.getDouble("Version") < 1.5)
-		{
-			config.set("Version", 1.5);
-			
-			//Get rid of old setting.
-			config.set("NameHighlightColor", null);
-			config.set("PlayerNameColor", "&d");
-			config.set("MoneyColor", "&a");
-			config.set("MoneyPrefix", "\\$");
-			config.set("MoneySuffix", "");
-		}
-		
-		if (config.getDouble("Version") < 1.6)
-		{
-			config.set("Version", 1.6);
-			config.set("debug", "false");
-		}
-		
-		if (config.getDouble("Version") < 1.81)
-		{
-			config.set("Version", 1.81);
-			config.set("debug", "false");
-		}
-		
-		if (config.getBoolean("RestoreDefaultColors") == true)
+		if (fcw.getBoolean("RestoreDefaultColors") == true)
 			restoreDefaultColors();
 		
+		loadConfigValues();
+	}
+	
+	private void loadConfigValues()
+	{
 		//Load the configuration values.
-		ultimatePrefixTagText = config.getString("UltimatePrefixTagText");
-		broadcastTag = config.getString("BroadcastTagText");
-		errorBroadcastTag = config.getString("ErrorBroadcastTagText");
-		primaryColor = config.getString("PrimaryColor");
-		secondaryColor = config.getString("SecondaryColor");
-		playerNameColor = config.getString("PlayerNameColor");
-		moneyColor = config.getString("MoneyColor");
-		errorColor = config.getString("ErrorColor");
-		primaryHeaderColor = config.getString("PrimaryHeaderColor");
-		secondaryHeaderColor = config.getString("SecondaryHeaderColor");
-		bracketColor = config.getString("BracketColor");
-		moneyPrefix = config.getString("MoneyPrefix");
-		moneySuffix = config.getString("MoneySuffix");
+		ultimatePrefixTagText = fcw.getString("UltimatePrefixTagText");
+		broadcastTag = fcw.getString("BroadcastTagText");
+		errorBroadcastTag = fcw.getString("ErrorBroadcastTagText");
+		primaryColor = fcw.getString("PrimaryColor");
+		secondaryColor = fcw.getString("SecondaryColor");
+		playerNameColor = fcw.getString("PlayerNameColor");
+		moneyColor = fcw.getString("MoneyColor");
+		errorColor = fcw.getString("ErrorColor");
+		primaryHeaderColor = fcw.getString("PrimaryHeaderColor");
+		secondaryHeaderColor = fcw.getString("SecondaryHeaderColor");
+		bracketColor = fcw.getString("BracketColor");
+		moneyPrefix = fcw.getString("MoneyPrefix");
+		moneySuffix = fcw.getString("MoneySuffix");
 		adminBroadcastTag = bracketColor + "[" + secondaryColor + "Admin Broadcast" + bracketColor + "] " + secondaryColor;
 		
 		if (!ultimatePrefixTagText.equals("") && !ultimatePrefixTagText.equals("null"))
@@ -112,27 +91,25 @@ public class SuiteConfig
 			secondaryTag = "";
 			errorTag = "";
 		}
-		
-		FC_Suite_Shared.plugin.saveConfig();
 	}
 	
 	private void restoreDefaultColors()
 	{
-		config.set("Version", 1.6);
-		config.set("UltimatePrefixTagText", "FC");
-		config.set("PrimaryColor", "&6");
-		config.set("SecondaryColor", "&e");
-		config.set("NameHighlightColor", "&2");
-		config.set("ErrorColor", "&c");
-		config.set("PrimaryHeaderColor", "&b");
-		config.set("SecondaryHeaderColor", "&3");
-		config.set("BracketColor", "&8");
-		config.set("BroadcastTagText", "&8[&6Broadcast&8] &6");
-		config.set("ErrorBroadcastTagText", "&8[&cBroadcast&8] &6");
-		config.set("PlayerNameColor", "&d");
-		config.set("MoneyColor", "&a");
-		config.set("MoneyPrefix", "\\$");
-		config.set("MoneySuffix", "");
-		config.set("RestoreDefaultColors", false);
+		fcw.set("Version", 2.0);
+		fcw.set("UltimatePrefixTagText", "FC");
+		fcw.set("PrimaryColor", "&6");
+		fcw.set("SecondaryColor", "&e");
+		fcw.set("NameHighlightColor", "&2");
+		fcw.set("ErrorColor", "&c");
+		fcw.set("PrimaryHeaderColor", "&b");
+		fcw.set("SecondaryHeaderColor", "&3");
+		fcw.set("BracketColor", "&8");
+		fcw.set("BroadcastTagText", "&8[&6Broadcast&8] &6");
+		fcw.set("ErrorBroadcastTagText", "&8[&cBroadcast&8] &6");
+		fcw.set("PlayerNameColor", "&d");
+		fcw.set("MoneyColor", "&a");
+		fcw.set("MoneyPrefix", "\\$");
+		fcw.set("MoneySuffix", "");
+		fcw.set("RestoreDefaultColors", false);
 	}
 }

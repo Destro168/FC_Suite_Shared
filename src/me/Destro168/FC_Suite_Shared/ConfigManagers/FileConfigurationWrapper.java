@@ -1,4 +1,4 @@
-package me.Destro168.ConfigManagers;
+package me.Destro168.FC_Suite_Shared.ConfigManagers;
 
 import java.io.File;
 import java.io.IOException;
@@ -6,12 +6,13 @@ import java.util.List;
 import java.util.logging.Level;
 
 import me.Destro168.FC_Suite_Shared.FC_Suite_Shared;
+import me.Destro168.FC_Suite_Shared.Messaging.LogWrapper;
 
 import org.bukkit.Location;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.configuration.file.YamlConfiguration;
 
-public class CustomConfigurationManager
+public class FileConfigurationWrapper
 {
 	private FC_Suite_Shared plugin;
 	private FileConfiguration config;
@@ -20,9 +21,11 @@ public class CustomConfigurationManager
 	private String absoluteFolderPath;
 	private FileConfigPlus fcp;
 	
+	public void setAbsoluteFolderPath(String x) { absoluteFolderPath = x; }
+	
 	public FileConfiguration getConfig() { return config; }
 	
-	public CustomConfigurationManager(String absoluteFolderPath_, String target_) 
+	public FileConfigurationWrapper(String absoluteFolderPath_, String target_) 
 	{
 		//Variable Declarations
 		plugin = FC_Suite_Shared.plugin;
@@ -79,16 +82,18 @@ public class CustomConfigurationManager
     }
     
     //Clear specific player data.
-    public synchronized void clearFileData()
+    public void clearFileData()
     {
-    	//Variable Declaration
-		String truePath;
-		
-		truePath = absoluteFolderPath;
-		
-    	config.set(truePath, null);
+    	LogWrapper log = new LogWrapper(FC_Suite_Shared.plugin.getLogger());
+    	log.log_Debug(absoluteFolderPath);
     	
-    	saveCustomConfig();
+    	//Variable Declaration
+    	File f = new File(absoluteFolderPath, target + ".yml");
+    	
+		if (!f.exists())
+			return;
+		
+		f.delete();
     }
     
     /***************************************************
@@ -111,7 +116,7 @@ public class CustomConfigurationManager
     {
     	config.set(field, x); saveCustomConfig();
     }
-
+    
     public String getString(String field)
     {
     	return config.getString(field);
@@ -207,13 +212,13 @@ public class CustomConfigurationManager
    		for (int i = 1; i < x.size(); i++) 
    			a += "," + String.valueOf(x.get(i));
    		
-   		set(field, a); 
+   		set(field, a);
    	}
     
     //Object
     public void set(String field, Object o)
     {
-    	config.set(field, o);
+    	config.set(field, o); saveCustomConfig();
     }
     
     public Object get(String field)
