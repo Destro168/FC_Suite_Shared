@@ -34,7 +34,13 @@ public class FC_Suite_Shared extends JavaPlugin
 		sc = new SuiteConfig();
 		
 		//Log success.
-		this.getLogger().info("Successfully found Vault. Enabled Succesffully");
+		this.getLogger().info("Successfully found Vault. Enabled Successfully");
+		
+	    try {
+			new AutoUpdate(this);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 	}
 	
 	private boolean setupPermissions()

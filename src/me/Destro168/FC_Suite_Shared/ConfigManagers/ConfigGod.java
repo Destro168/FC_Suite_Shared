@@ -8,6 +8,8 @@ public class ConfigGod
 	protected String prefix;
 	protected StringToY converter;
 	
+	public FileConfigurationWrapper getFileConfigurationWrapper() { return fcw; }
+	
 	protected void setVersion(double x) { fcw.set(prefix + "version", x); }
 	protected double getVersion() { return fcw.getDouble(prefix + "version"); }
 	

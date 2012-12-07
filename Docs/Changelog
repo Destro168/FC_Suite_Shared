@@ -3,12 +3,15 @@
 Version 2.0:
 
 General:
+- Dropped support for all builds before 1.82. FC Plugins built on 1.4.2 may or may not be compatible with this version.
 - Added leaderboard code from FC_Bounties so that I now have a reusable leaderboard implementation.
 - Renamed all packages to update directory structure to prevent interplugin conflicts.
 - Added a new log wrapper which will allow me to handle logging more effectively from now on in my plugins.
-- Dropped support for all builds before 1.82.
 - Shortened PP not found message.
 - Renamed a few classes internally to help organize code and more accurately represent objects.
+- Added new data retrieving functions that allow me to load and save data from configs that doesn't change during plugin runtime. This is a major performance optimization when used.
+- Various class changes.
+- Trying new autoupdater out, going to give this a shot, cause why not? To disable set "AutoUpdate" to false in the FC_Suite_Shared config. This will disable the autoupdater for ALL FC plugins.
 
 Version 1.82:
 

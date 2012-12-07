@@ -25,6 +25,8 @@ public class SuiteConfig
 	public String secondaryTag;
 	public String errorTag;
 	
+	public FileConfigurationWrapper getFileConfigurationWrapper() { return fcw; }
+	
 	//Sets
 	public void setVersion(double x) { fcw.set("Version", x); }
 	public void setDebug(boolean x) { fcw.set("Debug", x); }
@@ -49,10 +51,9 @@ public class SuiteConfig
 			setDebug(false);
 		}
 		
-		if (getVersion() < 2.1)
+		if (getVersion() < 2.0)
 		{
-			setVersion(2.1);
-			setDebug(true);
+			setVersion(2.0);
 		}
 		
 		if (fcw.getBoolean("RestoreDefaultColors") == true)

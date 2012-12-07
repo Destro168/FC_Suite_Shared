@@ -25,14 +25,14 @@ public class LogWrapper
 		log.info(text);
 	}
 	
-	public void log_Debug(String text)
+	public void log_Debug(Object text)
 	{
 		if (text == null)
 			text = "Null";
 		
 		if (FC_Suite_Shared.sc.getDebug() == true)
 		{
-			log.severe("DEBUGING -> " + text);
+			log.severe("DEBUGING -> " + String.valueOf(text));
 		}
 	}
 	

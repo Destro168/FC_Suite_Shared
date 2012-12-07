@@ -2,7 +2,9 @@ package me.Destro168.FC_Suite_Shared.ConfigManagers;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.logging.Level;
 
 import me.Destro168.FC_Suite_Shared.FC_Suite_Shared;
@@ -97,9 +99,20 @@ public class FileConfigurationWrapper
     }
     
     /***************************************************
+    
     * Get/Sets for: Long, Int, String, Double, Boolean
+    * Now uses my brand new idea that absolutely rapes dicks.
+    * Optimizes file accesses so that everything will be even faster.
+    
     ***************************************************/
     
+    private Map<String, Integer> ints = new HashMap<String, Integer>();
+	private Map<String, Double> doubles = new HashMap<String, Double>();
+	private Map<String, Long> longs = new HashMap<String, Long>();
+	private Map<String, String> strings = new HashMap<String, String>();
+	private Map<String, Boolean> booleans = new HashMap<String, Boolean>();
+	private Map<String, Location> locations = new HashMap<String, Location>();
+	
     //Long
     public void set(String field, long x)
     {
@@ -109,6 +122,17 @@ public class FileConfigurationWrapper
     public Long getLong(String field)
     {
     	return config.getLong(field);
+    }
+    
+    public Long getLongS(String field) //S is short for stagnant or special, whichever.
+    {
+    	if (longs.containsKey(field))
+			return longs.get(field);
+		else
+		{
+			longs.put(field, config.getLong(field));
+			return longs.get(field);
+		}
     }
     
     //String
@@ -122,6 +146,17 @@ public class FileConfigurationWrapper
     	return config.getString(field);
     }
     
+    public String getStringS(String field)
+    {
+    	if (strings.containsKey(field))
+			return strings.get(field);
+		else
+		{
+			strings.put(field, config.getString(field));
+			return strings.get(field);
+		}
+    }
+    
     //Double
     public void set(String field, double x)
     {
@@ -131,6 +166,17 @@ public class FileConfigurationWrapper
     public double getDouble(String field)
     {
     	return config.getDouble(field);
+    }
+    
+    public double getDoubleS(String field)
+    {
+    	if (doubles.containsKey(field))
+			return doubles.get(field);
+		else
+		{
+			doubles.put(field, config.getDouble(field));
+			return doubles.get(field);
+		}
     }
     
     //Boolean
@@ -144,15 +190,37 @@ public class FileConfigurationWrapper
     	return config.getBoolean(field);
     }
     
+    public boolean getBooleanS(String field)
+    {
+    	if (booleans.containsKey(field))
+			return booleans.get(field);
+		else
+		{
+			booleans.put(field, config.getBoolean(field));
+			return booleans.get(field);
+		}
+    }
+    
     //Int
     public void set(String field, int x)
     {
     	config.set(field, x); saveCustomConfig();
     }
-    
+	
     public int getInt(String field)
     {
     	return config.getInt(field);
+    }
+    
+    public int getIntS(String field)
+    {
+    	if (ints.containsKey(field))
+			return ints.get(field);
+		else
+		{
+			ints.put(field, config.getInt(field));
+			return ints.get(field);
+		}
     }
     
     //Location
@@ -164,6 +232,17 @@ public class FileConfigurationWrapper
     public Location getLocation(String field)
     {
     	return fcp.getLocation(field);
+    }
+    
+    public Location getLocationS(String field)
+    {
+    	if (locations.containsKey(field))
+			return locations.get(field);
+		else
+		{
+			locations.put(field, fcp.getLocation(field));
+			return locations.get(field);
+		}
     }
     
     //Lists
@@ -224,6 +303,11 @@ public class FileConfigurationWrapper
     public Object get(String field)
     {
     	return config.get(field);
+    }
+    
+    public boolean isSet(String field)
+    {
+    	return config.isSet(field);
     }
 }
 

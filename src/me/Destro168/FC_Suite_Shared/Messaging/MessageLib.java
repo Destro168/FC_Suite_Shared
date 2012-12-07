@@ -1,10 +1,12 @@
 package me.Destro168.FC_Suite_Shared.Messaging;
 
+import java.text.DecimalFormat;
 import java.util.List;
 
 import me.Destro168.FC_Suite_Shared.SuiteConfig;
 
 import org.bukkit.ChatColor;
+import org.bukkit.Location;
 import org.bukkit.craftbukkit.command.ColouredConsoleSender;
 import org.bukkit.entity.Player;
 
@@ -95,6 +97,17 @@ public class MessageLib extends BroadcastLib
 	public boolean standardHeader(String msg)
 	{
 		return sendTheMessage(cLib.parseCustom(cm.secondaryColor, cm.secondaryHeaderColor + ".: " + cm.primaryHeaderColor + ChatColor.ITALIC + ChatColor.BOLD + msg + cm.secondaryHeaderColor + " :."));
+	}
+	
+	public boolean displayLocation(String header, Location loc)
+	{
+		if (loc == null)
+			return true;
+
+		DecimalFormat df = new DecimalFormat("#.###");
+		
+		return standardMessage(header + " -> [N]: " + loc.getWorld().getName() + " [X]: " + df.format(loc.getX()) + " [Y]: " + df.format(loc.getY()) + " [Z]: " +
+				df.format(loc.getZ()) + " [Yaw]: " + df.format(loc.getYaw()) + " [Pitch]: " + df.format(loc.getPitch()));
 	}
 	
 	private boolean sendTheMessage(String msg)
