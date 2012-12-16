@@ -3,18 +3,15 @@ package me.Destro168.FC_Suite_Shared.Messaging;
 import java.text.DecimalFormat;
 import java.util.List;
 
-import me.Destro168.FC_Suite_Shared.SuiteConfig;
-
 import org.bukkit.ChatColor;
 import org.bukkit.Location;
 import org.bukkit.craftbukkit.command.ColouredConsoleSender;
 import org.bukkit.entity.Player;
 
-public class MessageLib extends BroadcastLib
+public class MessageLib extends StringToY
 {
-	SuiteConfig cm = new SuiteConfig();
-	Player player;
-	ColouredConsoleSender console;
+	private Player player;
+	private ColouredConsoleSender console;
 	
 	public MessageLib(Player player_) { player = player_; console = null; }
 	public MessageLib(ColouredConsoleSender console_) { console = console_; player = null; }
@@ -64,24 +61,29 @@ public class MessageLib extends BroadcastLib
 		return sendTheMessage(cLib.parseCustom(cm.primaryColor, cm.primaryTag + msg + ": " + cm.secondaryColor + msg2));
 	}
 	
+	public boolean infiniteMessage(final String... messageArgs)
+	{
+		return sendTheMessage(cLib.parseCustom(cm.primaryColor, cm.primaryTag + toString(messageArgs)));
+	}
+	
 	public boolean standardMessage(String[] msg)
 	{
-		return sendTheMessage(cLib.parseCustom(cm.primaryColor, cm.primaryTag + convertStringArrayToString(msg)));
+		return sendTheMessage(cLib.parseCustom(cm.primaryColor, cm.primaryTag + super.toString(msg)));
 	}
 	
 	public boolean standardMessage(List<String> msg)
 	{
-		return sendTheMessage(cLib.parseCustom(cm.primaryColor, cm.primaryTag + convertStringListToString(msg)));
+		return sendTheMessage(cLib.parseCustom(cm.primaryColor, cm.primaryTag + super.toString(msg)));
 	}
 	
 	public boolean standardMessage(String prefix, List<String> msgList)
 	{
-		return sendTheMessage(cLib.parseCustom(cm.primaryColor, cm.primaryTag + prefix + convertStringListToString(msgList)));
+		return sendTheMessage(cLib.parseCustom(cm.primaryColor, cm.primaryTag + prefix + super.toString(msgList)));
 	}
 	
 	public boolean standardMessage(String prefix, String[] msgList)
 	{
-		return sendTheMessage(cLib.parseCustom(cm.primaryColor, cm.primaryTag + prefix + convertStringArrayToString(msgList)));
+		return sendTheMessage(cLib.parseCustom(cm.primaryColor, cm.primaryTag + prefix + super.toString(msgList)));
 	}
 	
 	public boolean secondaryMessage(String msg)
@@ -99,11 +101,16 @@ public class MessageLib extends BroadcastLib
 		return sendTheMessage(cLib.parseCustom(cm.secondaryColor, cm.secondaryHeaderColor + ".: " + cm.primaryHeaderColor + ChatColor.ITALIC + ChatColor.BOLD + msg + cm.secondaryHeaderColor + " :."));
 	}
 	
+	public boolean displayFormattedList(List<String> msg)
+	{
+		return sendTheMessage(cLib.parseCustom(cm.primaryColor, cm.primaryTag + super.toString(msg)));
+	}
+	
 	public boolean displayLocation(String header, Location loc)
 	{
 		if (loc == null)
 			return true;
-
+		
 		DecimalFormat df = new DecimalFormat("#.###");
 		
 		return standardMessage(header + " -> [N]: " + loc.getWorld().getName() + " [X]: " + df.format(loc.getX()) + " [Y]: " + df.format(loc.getY()) + " [Z]: " +

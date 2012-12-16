@@ -1,4 +1,4 @@
-package me.Destro168.FC_Suite_Shared;
+package me.Destro168.FC_Suite_Shared.ConfigManagers;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -15,6 +15,7 @@
         <javaElement handleIdentifier="=FC_Suite_Shared/src"/>
         <file path="/FC_Suite_Shared/.project"/>
         <file path="/FC_Suite_Shared/.classpath"/>
+        <folder path="/FC_Suite_Shared/Docs"/>
         <file path="/FC_Suite_Shared/plugin.yml"/>
     </selectedElements>
 </jardesc>

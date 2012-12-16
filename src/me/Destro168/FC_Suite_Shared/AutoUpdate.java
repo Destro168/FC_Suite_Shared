@@ -136,7 +136,7 @@ public class AutoUpdate implements Runnable, Listener, CommandExecutor, CommandS
 		if (enabled != newState)
 		{
 			enabled = newState;
-			plugin.getLogger().info("[AutoUpdate] v" + version + (enabled ? " enabled" : " disabled") + "!");
+			//plugin.getLogger().info("[AutoUpdate] v" + version + (enabled ? " enabled" : " disabled") + "!");
 			
 			if (restart)
 				return restartMainTask();

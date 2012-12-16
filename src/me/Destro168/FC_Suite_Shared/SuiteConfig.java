@@ -51,9 +51,9 @@ public class SuiteConfig
 			setDebug(false);
 		}
 		
-		if (getVersion() < 2.0)
+		if (getVersion() < 2.2)
 		{
-			setVersion(2.0);
+			setVersion(2.2);
 		}
 		
 		if (fcw.getBoolean("RestoreDefaultColors") == true)
@@ -105,7 +105,7 @@ public class SuiteConfig
 		fcw.set("PrimaryHeaderColor", "&b");
 		fcw.set("SecondaryHeaderColor", "&3");
 		fcw.set("BracketColor", "&8");
-		fcw.set("BroadcastTagText", "&8[&6Broadcast&8] &6");
+		fcw.set("BroadcastTagText", "&8[&2Broadcast&8] &6");
 		fcw.set("ErrorBroadcastTagText", "&8[&cBroadcast&8] &6");
 		fcw.set("PlayerNameColor", "&d");
 		fcw.set("MoneyColor", "&a");

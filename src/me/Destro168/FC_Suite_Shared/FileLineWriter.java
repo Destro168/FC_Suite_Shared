@@ -19,7 +19,7 @@ public class FileLineWriter
 	
 	protected void writeToFile(String fileName, String loggable)
 	{
-		String finalPath = pluginAbsolutePath + "\\" + fileName;
+		String finalPath = pluginAbsolutePath + "/" + fileName;
 		
 		//Attempt to create file if it doesn't exist.
 		File f = new File(finalPath);

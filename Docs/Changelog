@@ -1,5 +1,15 @@
 ~ FC_Suite_Shared Changelog ~
 
+Version 2.2:
+
+- Incomptable with past versions of FC_Suite_Shared. All plugins updated to account for update.
+- Several function revisions with messenging.
+- AutoUpdate enabled message removed due to the fact that it repeats for every plugin.
+
+Version 2.1:
+
+- Default colors updated again. Just green broadcast tag. :)
+
 Version 2.0:
 
 General:
