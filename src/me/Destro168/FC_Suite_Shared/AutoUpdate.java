@@ -257,7 +257,7 @@ public class AutoUpdate implements Runnable, Listener, CommandExecutor, CommandS
 					ir.close();
 					return;
 				}
-				final String[] out = new String[] { "[" + plugin.getName() + "] New " + type + " available!", "If you want to update from " + av + " to " + updateVersion + " use /update " + plugin.getName(), "See " + pluginURL + " for more information." };
+				final String[] out = new String[] { "[" + plugin.getName() + "] New " + type + " available!", "If you want to update from " + av + " to " + updateVersion + " use /update " + plugin.getName(), "See " + pluginURL + " for more information. If your version number is greater than the version number pulled from bukkit dev, then ignore this message."};
 				plugin.getServer().getScheduler().scheduleSyncDelayedTask(plugin, new SyncMessageDelayer(null, out));
 				plugin.getServer().getScheduler().scheduleSyncDelayedTask(plugin, new Runnable()
 				{
