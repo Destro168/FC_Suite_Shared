@@ -2,6 +2,7 @@
 
 Version 2.3:
 
+- Updated to CB Beta 1.4.6-R0.3
 - All plugins have all craftbukkit and minecraft code removed. Only the bukkit API is called. This means my plugins shouldn't break every update anymore. Enjoy.
 - List getter has been updated to handle null items properly.
 - All plugins have had comments disabled. Tired of people not making tickets to express issues. I'd hate to have to constantly delete peoples comments that should be in tickets so I just disabled them.
