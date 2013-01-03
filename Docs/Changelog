@@ -1,90 +1,10 @@
 ~ FC_Suite_Shared Changelog ~
 
-Version 2.2:
+Version 2.3:
 
-- Incomptable with past versions of FC_Suite_Shared. All plugins updated to account for update.
-- Several function revisions with messenging.
-- AutoUpdate enabled message removed due to the fact that it repeats for every plugin.
-
-Version 2.1:
-
-- Default colors updated again. Just green broadcast tag. :)
-
-Version 2.0:
-
-General:
-- Dropped support for all builds before 1.82. FC Plugins built on 1.4.2 may or may not be compatible with this version.
-- Added leaderboard code from FC_Bounties so that I now have a reusable leaderboard implementation.
-- Renamed all packages to update directory structure to prevent interplugin conflicts.
-- Added a new log wrapper which will allow me to handle logging more effectively from now on in my plugins.
-- Shortened PP not found message.
-- Renamed a few classes internally to help organize code and more accurately represent objects.
-- Added new data retrieving functions that allow me to load and save data from configs that doesn't change during plugin runtime. This is a major performance optimization when used.
-- Various class changes.
-- Trying new autoupdater out, going to give this a shot, cause why not? To disable set "AutoUpdate" to false in the FC_Suite_Shared config. This will disable the autoupdater for ALL FC plugins.
-
-Version 1.82:
-
-General:
-- Built on CB Build #2497 1.4.5-R0.3
-- 1.6 to 1.82 all compatible
-- Updated the regex strings to now properly do what I wanted. Still new to regex but this will work now perfectly. :)
-- Updated the package for all plugins to be a bit more organized. Now you can unzip the jar to see a "docs" folder which will have a lot of useful plugin information. :)
-
-Version 1.81:
-
-- 1.6 to 1.81 versions all compatible.
-
-FC_Bans/FC_Rpg/FC_Bounties:
-- Fixed buggy sub-directory creation for all plugins thanks to a very nice person giving me full access to his server (ftp/console, etc.). I had to reverse the slashes! This means that you now HAVE to create a userinfo subdirectory inside of your plugins folder (where the config is) and put all past user data into it! This is assuming you are running a linux box of course though. Windows users should be fine.
-
-FC_Rpg:
-- The sub-directory fix also applies to the guild sub-directory, so move your guild sub-directory into your ~/plugins/FC_Rpg sub-directory. Finally fixed! :D
-
-- Removed lines of code that debug setting effected. Debug setting will be set to false on update. Rejoice! Yayayay!
-
-Version 1.8:
-
-- 1.6/1.7/1.8 versions all compatible.
-- Added null check to custom list storing.
-
-Version 1.7:
-
-- 1.6 + 1.7 are compatible with all FC plugins running either or.
-- Lowercase names are now able to be caught when players are offline. This means that you can ban players that are offline and the casing of their name will not matter. This changes applies to all instances of name matching for my plugins (lots and lots of name matching calls).
-
-Version 1.6:
-
-- All plugins using 1.6 of FC_Suite_Shared built on CB DEV Build #2406 1.4.2-R0.1
-- IMPORTANT - You MUST, make a backup before attempt an upgrade for plugins to 1.6. The following feature I'm about to describe is highly experimental. So basically it came to my attention that folders were being made called FC_Bans\userinfo, FC_Rpg\userinfo, etc. This is NOT what I intended of my plugins. The userinfo folder should be a sub-directory of the plugins data folder. If this isn't happening to you, then you can ignore this message. So I have added in code which will attempt to create the userinfo sub-directory if it doesn't exist. This means that if my fix works, your version of the plugin will create a new userinfo folder and be unable to find the old userinfo folder. This is why you need a backup. Put the information from your old userinfo folder into the newly generated userinfo folder and restart your server. This will cause the plugin to be able to load up the old information. ADDITIONALLY, there is a new settings called "debug". If my previous solution doesn't work, and you would like to help me out infinitely, PLEASe, PLEASE, PLEASE set debug to true, run your server, and see if the userinfo folder is generated as a sub-directory. If this works, please tell me so I can apply a permanent fix! I will put in my signature if a fix was found so feel free to check that out first before pming me! Thank you for your time!
-- POST-RELEASE UPDATE, seems like this didn't work so just ignore the "important" section but still make a backup imo.
-
-Version 1.5:
-
-- Heavy upgrade to color system to allow for new color coding tags. Brings back player name coloring and adds in sophisticated money formatting. Update settings to your liking. This is incomplete and all plugins are being updated to take advantage of this new coloring system.
-
-Version 1.4:
-
-- Class location changes.
-
-Version 1.3:
-
-- Built CB release - Build #2377 - CB 1.3.2-R2.0
-
-Version 1.2:
-
-- Updated the broadcast tag. No longer automatically adds parenthesis or colors.
-- Added new "errorBroadcastTag". It is the tag that will be shown for error broadcasts.
-- Updated restoreDefaultSettings to acommodate for the new tag layouts and if you would like to reset your colors and have everything be in line with the normal theme.
-
-Version 1.1
-
-- Administrators can now customize the broadcast tag to whatever they desire.
-- I had to do a few changes, the upgrade should be pretty quick for most of you. The main most notable change that needs accommodated is that user data is now stored in a folder called "userinfo". People didn't like that the names and configs were mixed up and I realized that this is "really really" bad because I guess in theory if somebody has the name "config", then that would screw up the config, xD. Anyway, yeah... so it's in a new folder. The path is ~/plugins/[Plugin Name]/userinfo. If the folder doesn't exist for you then please create it and move your player data into it. You can optionally not create the folder and wait for it to appear, my plugins all create player data when it's needed, and then move the player data into it.
-- Updated default colors because the first ones were totally random and I meant for them to suck and so I really wanted people to change them but I've been on many servers where people didn't and I'm like "oh god this is ugly" and I kind of feel bad, so yeah. If you want the color update just use the new "RestoreDefaultColors" option which will always force the default colors, yay! This option will also disable itself after run once so remember that if you change colors and don't like them, you will have to re-enable this setting in the future.
-- Removed name highlighting. It's a good idea but the feature needs work before I can fully implement it. It has issues and I'll work on fixing them another time.
-
-Version 1.0
-
-- Initiial release
-- No changelog, as one wasn't made at the time.
+- All plugins have all craftbukkit and minecraft code removed. Only the bukkit API is called. This means my plugins shouldn't break every update anymore. Enjoy.
+- List getter has been updated to handle null items properly.
+- All plugins have had comments disabled. Tired of people not making tickets to express issues. I'd hate to have to constantly delete peoples comments that should be in tickets so I just disabled them.
+- Went through all plugin tickets and updated statuses. Started work on finishing ticket requests. Will have new versions for plugins with them.
+- Fixed issue where having an empty tag broke error colors.
+- Cleaned up pages for each plugin.

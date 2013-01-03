@@ -17,9 +17,7 @@ public class NameMatcher
 		for (Player player: Bukkit.getServer().getOnlinePlayers())
 		{
 			if (player.getName().contains(name))
-			{
 				return player.getName();
-			}
 		}
 		
 		for (OfflinePlayer player: Bukkit.getServer().getOfflinePlayers())

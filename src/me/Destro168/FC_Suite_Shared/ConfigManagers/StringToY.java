@@ -13,6 +13,9 @@ public class StringToY
 	
 	public Location getLocationFromString(String xArg)
 	{
+		if (xArg == null)
+			return null;
+		
 		//Primary variable Declarations
 		char[] c = xArg.toCharArray();
 		int lastPos = 0;

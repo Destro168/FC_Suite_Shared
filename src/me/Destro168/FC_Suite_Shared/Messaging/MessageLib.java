@@ -5,16 +5,13 @@ import java.util.List;
 
 import org.bukkit.ChatColor;
 import org.bukkit.Location;
-import org.bukkit.craftbukkit.command.ColouredConsoleSender;
-import org.bukkit.entity.Player;
+import org.bukkit.command.CommandSender;
 
 public class MessageLib extends StringToY
 {
-	private Player player;
-	private ColouredConsoleSender console;
+	private CommandSender sender;
 	
-	public MessageLib(Player player_) { player = player_; console = null; }
-	public MessageLib(ColouredConsoleSender console_) { console = console_; player = null; }
+	public MessageLib(CommandSender sender_) { sender = sender_; }
 	
 	public boolean successCommand()
 	{
@@ -24,6 +21,11 @@ public class MessageLib extends StringToY
 	public boolean errorInvalidCommand()
 	{
 		return sendTheMessage(cm.secondaryTag + "Invalid Command Usage.");
+	}
+	
+	public boolean errorBadInput()
+	{
+		return sendTheMessage(cm.secondaryTag + "Invalid Input For Command Was Entered.");
 	}
 	
 	public boolean errorNoPermission()
@@ -119,11 +121,7 @@ public class MessageLib extends StringToY
 	
 	private boolean sendTheMessage(String msg)
 	{
-		if (player != null)
-			player.sendMessage(msg);
-		else if (console != null)
-			console.sendMessage(msg);
-		
+		sender.sendMessage(msg);
 		return true;
 	}
 }

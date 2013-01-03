@@ -51,9 +51,9 @@ public class SuiteConfig
 			setDebug(false);
 		}
 		
-		if (getVersion() < 2.2)
+		if (getVersion() < 2.3)
 		{
-			setVersion(2.2);
+			setVersion(2.3);
 		}
 		
 		if (fcw.getBoolean("RestoreDefaultColors") == true)
@@ -80,20 +80,27 @@ public class SuiteConfig
 		moneySuffix = fcw.getString("MoneySuffix");
 		adminBroadcastTag = bracketColor + "[" + secondaryColor + "Admin Broadcast" + bracketColor + "] " + secondaryColor;
 		
-		if (!ultimatePrefixTagText.equals("") && !ultimatePrefixTagText.equals("null"))
+		if (isEmpty(ultimatePrefixTagText))
+		{
+			primaryTag = cLib.parse("" + primaryColor);
+			secondaryTag = cLib.parse("" + secondaryColor);
+			errorTag = cLib.parse("" + errorColor);
+		}
+		else
 		{
 			primaryTag = cLib.parse(bracketColor + "[" + primaryColor + ultimatePrefixTagText + bracketColor + "] " + primaryColor);
 			secondaryTag = cLib.parse(bracketColor + "[" + secondaryColor + ultimatePrefixTagText + bracketColor + "] " + secondaryColor);
 			errorTag = cLib.parse(bracketColor + "[" + errorColor + ultimatePrefixTagText + bracketColor + "] " + errorColor);
 		}
-		else
-		{
-			primaryTag = "";
-			secondaryTag = "";
-			errorTag = "";
-		}
 	}
 	
+	private boolean isEmpty(String x)
+	{
+		if (x.equals("") || x.equalsIgnoreCase("null"))
+			return true;
+		
+		return false;
+	}
 	private void restoreDefaultColors()
 	{
 		fcw.set("Version", 2.0);

@@ -55,7 +55,7 @@ public class AutoUpdate implements Runnable, Listener, CommandExecutor, CommandS
 	 */
 	private long delay = 216000L;
 	private String bukkitdevSlug = "";
-	private final ChatColor COLOR_INFO = ChatColor.BLUE;
+	private final ChatColor COLOR_INFO = ChatColor.GOLD;
 	private final ChatColor COLOR_OK = ChatColor.GREEN;
 	private final ChatColor COLOR_ERROR = ChatColor.RED;
 	private boolean debug = true;
@@ -257,15 +257,16 @@ public class AutoUpdate implements Runnable, Listener, CommandExecutor, CommandS
 					ir.close();
 					return;
 				}
-				final String[] out = new String[] { "[" + plugin.getName() + "] New " + type + " available!", "If you want to update from " + av + " to " + updateVersion + " use /update " + plugin.getName(), "See " + pluginURL + " for more information. If your version number is greater than the version number pulled from bukkit dev, then ignore this message."};
+				
+				final String[] out = new String[] { "[" + plugin.getName() + "] Update Available!" + " To update " + av + " to " + updateVersion + " use /update " + plugin.getName() + ". See " + pluginURL + " for more information. If your version number is greater than " + updateVersion + ", ignore this message." };
 				plugin.getServer().getScheduler().scheduleSyncDelayedTask(plugin, new SyncMessageDelayer(null, out));
 				plugin.getServer().getScheduler().scheduleSyncDelayedTask(plugin, new Runnable()
 				{
 					public void run()
 					{
-						String[] rout = new String[3];
-						for (int i = 0; i < 3; i++)
-							rout[i] = COLOR_INFO + out[i];
+						
+						String[] rout = new String[1];
+						rout[0] = COLOR_INFO + out[0];
 						for (Player p : plugin.getServer().getOnlinePlayers())
 							if (hasPermission(p, "autoupdate.announce"))
 								p.sendMessage(rout);

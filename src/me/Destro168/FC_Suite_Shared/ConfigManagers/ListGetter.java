@@ -46,10 +46,12 @@ public class ListGetter
 		
 		for (int i = 0; i < 999999; i++)
 		{
-			try {
-				b = fcw.getLocation(field + "." + i);
+			b = fcw.getLocation(field + "." + i);
+			
+			if (b != null)
 				a.add(b);
-			} catch (NullPointerException e) {
+			else
+			{
 				breakCounter++;
 				
 				if (breakCounter > 50)

@@ -223,6 +223,17 @@ public class FileConfigurationWrapper
 		}
     }
     
+    //Short
+    public void set(String field, short x)
+    {
+    	config.set(field, x); saveCustomConfig();
+    }
+    
+    public Short getShort(String field)
+    {
+    	return (short) getInt(field);
+    }
+    
     //Location
     public void setLocation(String field, String worldName, double x, double y, double z, float a, float b)
     {

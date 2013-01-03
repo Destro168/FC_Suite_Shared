@@ -1,6 +1,5 @@
 package me.Destro168.FC_Suite_Shared.ConfigManagers;
 
-
 public class ConfigGod 
 {
 	protected FileConfigurationWrapper fcw;

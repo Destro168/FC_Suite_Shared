@@ -1,0 +1,41 @@
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+      ___           ___                    ___           ___                         ___           ___   
+     /\__\         /\__\                  /\__\         /\__\                       /\  \         /\  \  
+    /:/ _/_       /:/  /                 /:/ _/_       /:/ _/_         ___          \:\  \       /::\  \ 
+   /:/ /\__\     /:/  /                 /:/ /\  \     /:/ /\__\       /\__\          \:\  \     /:/\:\__\
+  /:/ /:/  /    /:/  /  ___            /:/ /::\  \   /:/ /:/ _/_     /:/  /      ___  \:\  \   /:/ /:/  /
+ /:/_/:/  /    /:/__/  /\__\          /:/_/:/\:\__\ /:/_/:/ /\__\   /:/__/      /\  \  \:\__\ /:/_/:/  / 
+ \:\/:/  /     \:\  \ /:/  /          \:\/:/ /:/  / \:\/:/ /:/  /  /::\  \      \:\  \ /:/  / \:\/:/  /  
+  \::/__/       \:\  /:/  /            \::/ /:/  /   \::/_/:/  /  /:/\:\  \      \:\  /:/  /   \::/__/   
+   \:\  \        \:\/:/  /              \/_/:/  /     \:\/:/  /   \/__\:\  \      \:\/:/  /     \:\  \   
+    \:\__\        \::/  /                 /:/  /       \::/  /         \:\__\      \::/  /       \:\__\  
+     \/__/         \/__/                  \/__/         \/__/           \/__/       \/__/         \/__/  
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+The base installation process for all of my FC plugins is the same and is detailed through the following layout
+
+Step 1: All of my plugins require Vault. All of my plugins require FC_Suite_Shared as well to be installed. The use of Vault is to handle permissions as well as economy. Please ensure that you are running a Vault supported economy as well as a Vault supported Permissions Providing Plugin.
+
+Vault DL Link -> http://dev.bukkit.org/server-mods/vault/.
+FC_Suite_Shared DL Link -> http://dev.bukkit.org/server-mods/fc_suite_shared/
+
+Step 2: Shut Down Your Server.
+
+Step 3: Add Your FC plugin of choice with Vault.jar and FC_Suite_Shared.jar To Your Server Plugins Folder.
+
+Step 4: Start Your Server
+
+Step 5: Upon startup of your server, configuration files will be generated. Configure the configuration file to how you desire. All FC plugins have a configuration file or multiple configuration files you generally do not HAVE to setup, but are very beneficial to setup. Visit each plugins Setup file to see detailed information on specific plugin configuration.
+
+FC_Suite_Shared Specific Setup: Please ensure that you configure the FC_Suite_Shared config file located at /plugins/FC_Suite_Shared/config.yml. All of the configuration options are highly self-descriptive so I won't provide an explanation of what they do. The only one that isn't as much is "RestoreDefaultColors", which, when set to true will set all of the colors back to default and revert to false. Please note that all FC plugins support all of the standard classic minecraft color codes as well as '&z' as a space character ('&z' is very useful for putting spaces into chat commands). For information on color codes, please refer to -> http://www.minecraftwiki.net/wiki/Classic_server_protocol. If you don't want the autoupdater running with my FC plugins, just set the AutoUpdate setting to false. This can be useful if you are running vesions not yet approved on bukkit dev to prevent seeing the autoupdate messages.
+
+Step 6: Configure permissions for players and/or groups through your permissions providing plugin. All FC plugins have permission that one should consider setting up. The Permissions file in the docs folder for the particular plugin will help you with this.
+
+Step 7: Shut Down Your Server.
+
+Step 8: Add and/or Save Your Configured Files to their respective file paths.
+
+Step 9: Start Your Server Back Up.
+
+You are finished installing your plugin. Enjoy!
