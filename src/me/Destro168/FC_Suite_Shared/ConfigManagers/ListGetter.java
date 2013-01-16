@@ -18,6 +18,35 @@ public class ListGetter
 		breakCounter = 0;
 	}
 	
+	public List<Integer> getFieldIntegerList()
+	{
+		List<Integer> a = new ArrayList<Integer>();
+		
+		for (int i = 0; i < 999999; i++)
+		{
+			if (fcw.getString(field + "." + i) != null)
+				a.add(i);
+			else
+			{
+				breakCounter++;
+				
+				if (breakCounter > 50)
+					return a;
+			}
+			
+			/*
+			try {
+				b = ;
+				a.add(i);
+			} catch (NullPointerException e) {
+				
+			}
+			*/
+		}
+		
+		return a;
+	}
+	
 	public List<String> getStringList()
 	{
 		List<String> a = new ArrayList<String>();

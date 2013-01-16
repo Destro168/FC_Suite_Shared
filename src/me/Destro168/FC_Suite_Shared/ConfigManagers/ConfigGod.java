@@ -2,11 +2,8 @@ package me.Destro168.FC_Suite_Shared.ConfigManagers;
 
 public class ConfigGod 
 {
-	protected FileConfigurationWrapper fcw;
-	protected String prefix;
-	protected StringToY converter;
-	
-	public FileConfigurationWrapper getFileConfigurationWrapper() { return fcw; }
+	public FileConfigurationWrapper fcw;
+	public String prefix;
 	
 	protected void setVersion(double x) { fcw.set(prefix + "version", x); }
 	protected double getVersion() { return fcw.getDouble(prefix + "version"); }
@@ -15,7 +12,6 @@ public class ConfigGod
 	public ConfigGod(String path, String target)
 	{
 		//Initialize variables.
-		converter = new StringToY();
 		prefix = target + ".";
 		fcw = new FileConfigurationWrapper(path, target);
 	}

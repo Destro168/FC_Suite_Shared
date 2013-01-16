@@ -102,10 +102,7 @@ public class AutoUpdate implements Runnable, Listener, CommandExecutor, CommandS
 			delay = 72000L;
 		}
 		
-		if (!FC_Suite_Shared.sc.getFileConfigurationWrapper().isSet("AutoUpdate"))
-			FC_Suite_Shared.sc.getFileConfigurationWrapper().set("AutoUpdate", true);
-		
-		if (FC_Suite_Shared.sc.getFileConfigurationWrapper().getBoolean("AutoUpdate"))
+		if (FC_Suite_Shared.sc.getFileConfigurationWrapper().getStaticBoolean("AutoUpdate", true))
 			checkState(true, true);
 		else
 			return;

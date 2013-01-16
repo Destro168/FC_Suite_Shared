@@ -5,12 +5,12 @@ import java.util.List;
 import me.Destro168.FC_Suite_Shared.ColorLib;
 import me.Destro168.FC_Suite_Shared.SuiteConfig;
 
-public class StringToY
+public class YToString
 {
 	public SuiteConfig cm;
 	public ColorLib cLib = new ColorLib();
 	
-	public StringToY()
+	public YToString()
 	{
 		cm = new SuiteConfig();
 		cLib = new ColorLib();

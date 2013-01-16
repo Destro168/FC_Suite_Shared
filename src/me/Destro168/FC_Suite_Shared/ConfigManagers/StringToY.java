@@ -13,7 +13,7 @@ public class StringToY
 	
 	public Location getLocationFromString(String xArg)
 	{
-		if (xArg == null)
+		if (xArg == null || xArg.equalsIgnoreCase(""))
 			return null;
 		
 		//Primary variable Declarations
@@ -75,6 +75,9 @@ public class StringToY
 	
 	public List<String> getStringListFromString(String xArg)
 	{
+		if (xArg == null || xArg.equalsIgnoreCase(""))
+			return null;
+		
 		List<String> d = new ArrayList<String>();
 		char[] c = xArg.toCharArray();
 		int lastPos = 0;
@@ -97,6 +100,9 @@ public class StringToY
 	
 	public List<Double> getDoubleListFromString(String xArg)
 	{
+		if (xArg == null || xArg.equalsIgnoreCase(""))
+			return null;
+		
 		List<Double> d = new ArrayList<Double>();
 		char[] c = xArg.toCharArray();
 		int lastPos = 0;
@@ -119,6 +125,9 @@ public class StringToY
 	
 	public List<Integer> getIntegerListFromString(String xArg)
 	{
+		if (xArg == null || xArg.equalsIgnoreCase(""))
+			return null;
+		
 		List<Integer> d = new ArrayList<Integer>();
 		char[] c = xArg.toCharArray();
 		int lastPos = 0;
@@ -140,6 +149,9 @@ public class StringToY
 	
 	public List<Byte> getByteListFromString(String xArg)
 	{
+		if (xArg == null || xArg.equalsIgnoreCase(""))
+			return null;
+		
 		List<Byte> d = new ArrayList<Byte>();
 		char[] c = xArg.toCharArray();
 		int lastPos = 0;

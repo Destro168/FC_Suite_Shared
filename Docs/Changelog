@@ -1,11 +1,13 @@
 ~ FC_Suite_Shared Changelog ~
 
-Version 2.3:
+Version 2.5:
 
-- Updated to CB Beta 1.4.6-R0.3
-- All plugins have all craftbukkit and minecraft code removed. Only the bukkit API is called. This means my plugins shouldn't break every update anymore. Enjoy.
-- List getter has been updated to handle null items properly.
-- All plugins have had comments disabled. Tired of people not making tickets to express issues. I'd hate to have to constantly delete peoples comments that should be in tickets so I just disabled them.
-- Went through all plugin tickets and updated statuses. Started work on finishing ticket requests. Will have new versions for plugins with them.
-- Fixed issue where having an empty tag broke error colors.
-- Cleaned up pages for each plugin.
+- Incredibly huge updates to the FileConfigurationWrapper class in regards to handling static data.
+- Other class updates.
+
+Version 2.4:
+
+- Renamed a class to prevent very rare linkage errors occuring during reloads.
+- Added a few new methods to the FileConfigurationWrapper class to access configuration files in a few more efficient and different ways.
+- Added the ability to customize headers entirely.
+- Updated permissions a little bit. Just a tiny bit more straightforward in the code.

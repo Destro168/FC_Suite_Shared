@@ -70,6 +70,34 @@ public class ColorLib
 		return line;
 	}
 	
+	public String removeColorCodes(String line)
+	{
+		line = line.replaceAll("&0", "");
+		line = line.replaceAll("&1", "");
+		line = line.replaceAll("&2", "");
+		line = line.replaceAll("&3", "");
+		line = line.replaceAll("&4", "");
+		line = line.replaceAll("&5", "");
+		line = line.replaceAll("&6", "");
+		line = line.replaceAll("&7", "");
+		line = line.replaceAll("&8", "");
+		line = line.replaceAll("&9", "");
+		line = line.replaceAll("&a", "");
+		line = line.replaceAll("&b", "");
+		line = line.replaceAll("&c", "");
+		line = line.replaceAll("&d", "");
+		line = line.replaceAll("&e", "");
+		line = line.replaceAll("&f", "");
+		line = line.replaceAll("&l", "");
+		line = line.replaceAll("&o", "");
+		line = line.replaceAll("&n", "");
+		line = line.replaceAll("&m", "");
+		line = line.replaceAll("&k", "");
+		line = line.replaceAll("&z", "");
+		
+		return line;
+	}
+	
 	public String getRandomColor()
 	{
 		Random r = new Random();

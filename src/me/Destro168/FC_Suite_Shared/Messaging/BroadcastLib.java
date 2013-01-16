@@ -8,9 +8,15 @@ import me.Destro168.FC_Suite_Shared.PermissionManager;
 import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
 
-public class BroadcastLib extends StringToY
+public class BroadcastLib extends YToString
 {
 	public BroadcastLib() { }
+	
+	public boolean infiniteBroadcast(String... msg)
+	{
+		Bukkit.getServer().broadcastMessage(cLib.parseCustom(cm.primaryColor, cm.broadcastTag + toString(msg)));
+		return true;
+	}
 	
 	public boolean standardBroadcast(String msg)
 	{

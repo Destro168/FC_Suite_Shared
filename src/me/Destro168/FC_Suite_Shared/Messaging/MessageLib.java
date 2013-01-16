@@ -3,11 +3,10 @@ package me.Destro168.FC_Suite_Shared.Messaging;
 import java.text.DecimalFormat;
 import java.util.List;
 
-import org.bukkit.ChatColor;
 import org.bukkit.Location;
 import org.bukkit.command.CommandSender;
 
-public class MessageLib extends StringToY
+public class MessageLib extends YToString
 {
 	private CommandSender sender;
 	
@@ -48,9 +47,14 @@ public class MessageLib extends StringToY
 		return sendTheMessage(cm.secondaryTag + "You don't have enough money!");
 	}
 	
-	public boolean errorInvalidSelection()
+	public boolean errorInvalidSelectionNoPoints()
 	{
 		return sendTheMessage(cm.secondaryTag + "Please select two points first!");
+	}
+	
+	public boolean errorInvalidSelectionOnePoint()
+	{
+		return sendTheMessage(cm.secondaryTag + "Please make another selection first!");
 	}
 	
 	public boolean standardMessage(String msg)
@@ -98,9 +102,17 @@ public class MessageLib extends StringToY
 		return sendTheMessage(cLib.parseCustom(cm.secondaryColor, cm.errorTag + msg));
 	}
 	
-	public boolean standardHeader(String msg)
+	public boolean infiniteError(final String... messageArgs)
 	{
-		return sendTheMessage(cLib.parseCustom(cm.secondaryColor, cm.secondaryHeaderColor + ".: " + cm.primaryHeaderColor + ChatColor.ITALIC + ChatColor.BOLD + msg + cm.secondaryHeaderColor + " :."));
+		return sendTheMessage(cLib.parseCustom(cm.secondaryColor, cm.errorTag + toString(messageArgs)));
+	}
+	
+	public boolean standardHeader(String... msg)
+	{
+		for (int i = 0; i < msg.length; i++)
+			msg[i] = cm.headerColor + msg[i];
+		
+		return sendTheMessage(cLib.parseCustom(cm.secondaryColor, cm.headerPrefix + super.toString(msg) + cm.headerSuffix));
 	}
 	
 	public boolean displayFormattedList(List<String> msg)

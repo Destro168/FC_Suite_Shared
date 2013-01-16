@@ -6,7 +6,7 @@ import me.Destro168.FC_Suite_Shared.ConfigManagers.FileConfigurationWrapper;
 import me.Destro168.FC_Suite_Shared.Messaging.BroadcastLib;
 import me.Destro168.FC_Suite_Shared.Messaging.MessageLib;
 
-public class Leaderboard 
+public class Leaderboard
 {
 	protected FileConfigurationWrapper fcw;
 	protected BroadcastLib bLib = new BroadcastLib();

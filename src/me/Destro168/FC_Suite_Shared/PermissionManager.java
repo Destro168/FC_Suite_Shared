@@ -16,25 +16,31 @@ public class PermissionManager
 	
 	public PermissionManager(Player player_) 
 	{
+		setDefaults();
 		player = player_;
-		
 		setupPermissions();
 	}
 	
 	public PermissionManager(boolean isConsole_)
 	{
+		setDefaults();
+		
 		if (isConsole_ == true)
 			isConsole = true;
 		else
 			isConsole = false;
 	}
 	
+	private void setDefaults()
+	{
+		player = null;
+		permission = null;
+		isConsole = false;
+	}
+	
 	//Tested in main to make sure that this works so it should work 100% for sure no matter what from now on.
 	protected void setupPermissions()
     {
-		if (player == null)
-			isConsole = false;
-		
         RegisteredServiceProvider<Permission> permissionProvider = FC_Suite_Shared.plugin.getServer().getServicesManager().getRegistration(net.milkbowl.vault.permission.Permission.class);
         
         if (permissionProvider == null)

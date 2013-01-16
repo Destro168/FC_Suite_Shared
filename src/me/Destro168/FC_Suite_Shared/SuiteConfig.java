@@ -16,8 +16,11 @@ public class SuiteConfig
 	public String moneyColor;
 	public String playerNameColor;
 	public String errorColor;
-	public String primaryHeaderColor;
-	public String secondaryHeaderColor;
+	
+	public String headerPrefix;
+	public String headerSuffix;
+	public String headerColor;
+	
 	public String bracketColor;
 	public String moneyPrefix;
 	public String moneySuffix;
@@ -51,10 +54,17 @@ public class SuiteConfig
 			setDebug(false);
 		}
 		
-		if (getVersion() < 2.3)
+		if (getVersion() < 2.4)
 		{
-			setVersion(2.3);
+			setVersion(2.4);
+			
+			fcw.set("headerPrefix", "&b.: ");
+			fcw.set("headerSuffix", "&b :.");
+			fcw.set("headerColor", "&b&l&o");
 		}
+		
+		if (getVersion() < 2.5)
+			setVersion(2.5);
 		
 		if (fcw.getBoolean("RestoreDefaultColors") == true)
 			restoreDefaultColors();
@@ -73,8 +83,11 @@ public class SuiteConfig
 		playerNameColor = fcw.getString("PlayerNameColor");
 		moneyColor = fcw.getString("MoneyColor");
 		errorColor = fcw.getString("ErrorColor");
-		primaryHeaderColor = fcw.getString("PrimaryHeaderColor");
-		secondaryHeaderColor = fcw.getString("SecondaryHeaderColor");
+		
+		headerPrefix = fcw.getString("headerPrefix");
+		headerSuffix = fcw.getString("headerSuffix");
+		headerColor = fcw.getString("headerColor");
+		
 		bracketColor = fcw.getString("BracketColor");
 		moneyPrefix = fcw.getString("MoneyPrefix");
 		moneySuffix = fcw.getString("MoneySuffix");
@@ -103,14 +116,15 @@ public class SuiteConfig
 	}
 	private void restoreDefaultColors()
 	{
-		fcw.set("Version", 2.0);
+		fcw.set("Version", 2.4);
 		fcw.set("UltimatePrefixTagText", "FC");
 		fcw.set("PrimaryColor", "&6");
 		fcw.set("SecondaryColor", "&e");
 		fcw.set("NameHighlightColor", "&2");
+		fcw.set("headerPrefix", "&b.: ");
+		fcw.set("headerSuffix", "&b :.");
+		fcw.set("headerColor", "&b&l&o");
 		fcw.set("ErrorColor", "&c");
-		fcw.set("PrimaryHeaderColor", "&b");
-		fcw.set("SecondaryHeaderColor", "&3");
 		fcw.set("BracketColor", "&8");
 		fcw.set("BroadcastTagText", "&8[&2Broadcast&8] &6");
 		fcw.set("ErrorBroadcastTagText", "&8[&cBroadcast&8] &6");
