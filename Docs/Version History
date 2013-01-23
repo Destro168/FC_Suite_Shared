@@ -1,5 +1,15 @@
 ~ FC_Suite_Shared Version History ~
 
+Version 2.52:
+
+General:
+- Player name search is now entirely case insensitive for online and offline players for all FC plugins. Thanks to peman3232 for the code.
+
+Version 2.51:
+
+General:
+- Using System.currentTimeMillis() rather than making a new date object to get time for all plugins.
+
 Version 2.5:
 
 - Incredibly huge updates to the FileConfigurationWrapper class in regards to handling static data.
