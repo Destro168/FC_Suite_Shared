@@ -1,5 +1,17 @@
 ~ FC_Suite_Shared Version History ~
 
+Version 2.5:
+
+- Incredibly huge updates to the FileConfigurationWrapper class in regards to handling static data.
+- Other class updates.
+
+Version 2.4:
+
+- Renamed a class to prevent very rare linkage errors occuring during reloads.
+- Added a few new methods to the FileConfigurationWrapper class to access configuration files in a few more efficient and different ways.
+- Added the ability to customize headers entirely.
+- Updated permissions a little bit. Just a tiny bit more straightforward in the code.
+
 Version 2.3:
 
 - Updated to CB Beta 1.4.6-R0.3

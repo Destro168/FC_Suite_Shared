@@ -128,11 +128,8 @@ public class DateManager
 		//Set punishment end to future date
 		Calendar gc = new GregorianCalendar();
 		
-		//Referesh now.
-		Date now = new Date();
-		
 		//Set starting time
-		gc.setTime(now);
+		gc.setTime(new Date());
 		
 		//Add the time.
 		gc.add(Calendar.SECOND, int_Seconds);
@@ -148,11 +145,8 @@ public class DateManager
 		//Set punishment end to future date
 		Calendar gc = new GregorianCalendar();
 		
-		//Referesh now.
-		Date now = new Date();
-		
 		//Set starting time
-		gc.setTime(now);
+		gc.setTime(new Date());
 		
 		//Add the time
 		gc.add(Calendar.MILLISECOND, int_Milliseconds);
@@ -168,11 +162,8 @@ public class DateManager
 		//Set punishment end to future date
 		Calendar gc = new GregorianCalendar();
 		
-		//Referesh now.
-		Date now = new Date();
-		
 		//Set starting time
-		gc.setTime(now);
+		gc.setTime(new Date());
 		
 		//Add the time.
 		gc.add(Calendar.HOUR, int_Hours);
@@ -188,11 +179,8 @@ public class DateManager
 		//Set punishment end to future date
 		Calendar gc = new GregorianCalendar();
 		
-		//Referesh now.
-		Date now = new Date();
-		
 		//Set starting time
-		gc.setTime(now);
+		gc.setTime(new Date());
 		
 		//Add the time.
 		gc.add(Calendar.MONTH, int_Months);
@@ -208,11 +196,8 @@ public class DateManager
 		//Set punishment end to future date
 		Calendar gc = new GregorianCalendar();
 		
-		//Referesh now.
-		Date now = new Date();
-		
 		//Set starting time
-		gc.setTime(now);
+		gc.setTime(new Date());
 		
 		//Add the time.
 		gc.add(Calendar.SECOND, (int) (int_Milliseconds * 1000));

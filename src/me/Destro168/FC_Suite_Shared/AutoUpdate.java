@@ -133,7 +133,6 @@ public class AutoUpdate implements Runnable, Listener, CommandExecutor, CommandS
 		if (enabled != newState)
 		{
 			enabled = newState;
-			//plugin.getLogger().info("[AutoUpdate] v" + version + (enabled ? " enabled" : " disabled") + "!");
 			
 			if (restart)
 				return restartMainTask();
@@ -255,7 +254,7 @@ public class AutoUpdate implements Runnable, Listener, CommandExecutor, CommandS
 					return;
 				}
 				
-				final String[] out = new String[] { "[" + plugin.getName() + "] Update Available!" + " To update " + av + " to " + updateVersion + " use /update " + plugin.getName() + ". See " + pluginURL + " for more information. If your version number is greater than " + updateVersion + ", ignore this message." };
+				final String[] out = new String[] { "Update Available!" + " To update " + av + " to " + updateVersion + " use /update " + plugin.getName() + ". See " + pluginURL + " for more information. If your version number is greater than " + updateVersion + ", ignore this message." };
 				plugin.getServer().getScheduler().scheduleSyncDelayedTask(plugin, new SyncMessageDelayer(null, out));
 				plugin.getServer().getScheduler().scheduleSyncDelayedTask(plugin, new Runnable()
 				{

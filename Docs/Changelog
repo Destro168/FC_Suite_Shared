@@ -1,13 +1,11 @@
 ~ FC_Suite_Shared Changelog ~
 
-Version 2.5:
+Version 2.52:
 
-- Incredibly huge updates to the FileConfigurationWrapper class in regards to handling static data.
-- Other class updates.
+General:
+- Player name search is now entirely case insensitive for online and offline players for all FC plugins. Thanks to peman3232 for the code.
 
-Version 2.4:
+Version 2.51:
 
-- Renamed a class to prevent very rare linkage errors occuring during reloads.
-- Added a few new methods to the FileConfigurationWrapper class to access configuration files in a few more efficient and different ways.
-- Added the ability to customize headers entirely.
-- Updated permissions a little bit. Just a tiny bit more straightforward in the code.
+General:
+- Using System.currentTimeMillis() rather than making a new date object to get time for all plugins.
