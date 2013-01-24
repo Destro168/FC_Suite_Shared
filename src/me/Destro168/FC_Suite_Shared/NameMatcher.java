@@ -18,7 +18,10 @@ public class NameMatcher
 		{
 			if (player.getName().equalsIgnoreCase(name))
 				return player.getName();
-			
+		}
+		
+		for (Player player: Bukkit.getServer().getOnlinePlayers())
+		{
 			if (player.getName().toLowerCase().contains(name.toLowerCase()))
 				return player.getName();
 		}
@@ -27,7 +30,10 @@ public class NameMatcher
 		{
 			if (player.getName().equalsIgnoreCase(name))
 				return player.getName();
-			
+		}
+		
+		for (OfflinePlayer player: Bukkit.getServer().getOfflinePlayers())
+		{
 			if (player.getName().toLowerCase().contains(name.toLowerCase()))
 				return player.getName();
 		}
