@@ -24,7 +24,7 @@ public class ListGetter
 		
 		for (int i = 0; i < 999999; i++)
 		{
-			if (fcw.getString(field + "." + i) != null)
+			if (fcw.isSet(field + "." + i))
 				a.add(i);
 			else
 			{
@@ -33,15 +33,6 @@ public class ListGetter
 				if (breakCounter > 50)
 					return a;
 			}
-			
-			/*
-			try {
-				b = ;
-				a.add(i);
-			} catch (NullPointerException e) {
-				
-			}
-			*/
 		}
 		
 		return a;

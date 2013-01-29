@@ -103,8 +103,8 @@ public class FileConfigurationWrapper
 	public void clearFileData()
 	{
 		LogWrapper log = new LogWrapper(FC_Suite_Shared.plugin.getLogger());
-		log.log_Debug(absoluteFolderPath);
-
+		log.log(absoluteFolderPath);
+		
 		// Variable Declaration
 		File f = new File(absoluteFolderPath, target + ".yml");
 

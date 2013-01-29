@@ -63,8 +63,8 @@ public class SuiteConfig
 			fcw.set("headerColor", "&b&l&o");
 		}
 		
-		if (getVersion() < 2.54)
-			setVersion(2.54);
+		if (getVersion() < 2.55)
+			setVersion(2.55);
 		
 		if (fcw.getBoolean("RestoreDefaultColors") == true)
 			restoreDefaultColors();
