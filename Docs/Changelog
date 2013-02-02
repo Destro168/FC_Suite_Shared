@@ -1,5 +1,0 @@
-~ FC_Suite_Shared Changelog ~
-
-Version 2.55:
-
-- ColorLib method /removeColors() now strips out colors regardless of format.

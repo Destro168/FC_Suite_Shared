@@ -1,5 +1,9 @@
 ~ FC_Suite_Shared Version History ~
 
+Version 2.55:
+
+- ColorLib method /removeColors() now strips out colors regardless of format.
+
 Version 2.54:
 
 - Made another update to player name search.

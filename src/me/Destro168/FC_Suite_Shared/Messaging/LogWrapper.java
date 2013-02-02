@@ -62,7 +62,7 @@ public class LogWrapper
 	public void timeEnd(String x)
 	{
 		if (FC_Suite_Shared.sc.getDebug() == true)
-			FC_Suite_Shared.log.log("[TIME END - "+x+"]: " + (System.nanoTime() - startTime) + "");
+			log.severe("[TIME END - "+x+"]: " + (System.nanoTime() - startTime) + "");
 		
 		startTime = System.nanoTime();
 	}

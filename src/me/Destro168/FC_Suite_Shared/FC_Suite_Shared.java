@@ -1,6 +1,5 @@
 package me.Destro168.FC_Suite_Shared;
 
-import me.Destro168.FC_Suite_Shared.Messaging.LogWrapper;
 import me.Destro168.FC_Suite_Shared.Messaging.MessageLib;
 import net.milkbowl.vault.permission.Permission;
 
@@ -15,7 +14,6 @@ public class FC_Suite_Shared extends JavaPlugin
 {
 	public static FC_Suite_Shared plugin;
 	public static SuiteConfig sc;
-	public static LogWrapper log;
 	
 	@Override
 	public void onDisable() 
@@ -27,7 +25,6 @@ public class FC_Suite_Shared extends JavaPlugin
 	public void onEnable() 
 	{
 		plugin = this;
-		log = new LogWrapper(FC_Suite_Shared.plugin.getLogger());
 		
 		//Set up permissions.
 		if (setupPermissions() == false)

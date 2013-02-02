@@ -1,0 +1,11 @@
+~ FC_Suite_Shared Changelog ~
+
+-------------------------------------------------------------------
+Version 2.56:
+-------------------------------------------------------------------
+General:
+- Removed logwrapper object from FC_suite_shared.java.
+- Updated a class in logwrapper to not use that object.
+- Removed dot suffix from ListGetter class.
+
+-------------------------------------------------------------------

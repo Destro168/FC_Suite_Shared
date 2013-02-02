@@ -24,7 +24,7 @@ public class ListGetter
 		
 		for (int i = 0; i < 999999; i++)
 		{
-			if (fcw.isSet(field + "." + i))
+			if (fcw.isSet(field + i))
 				a.add(i);
 			else
 			{
