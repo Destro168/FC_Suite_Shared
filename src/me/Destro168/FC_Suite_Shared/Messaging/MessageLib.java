@@ -3,6 +3,8 @@ package me.Destro168.FC_Suite_Shared.Messaging;
 import java.text.DecimalFormat;
 import java.util.List;
 
+import me.Destro168.FC_Suite_Shared.ColorLib;
+
 import org.bukkit.Location;
 import org.bukkit.command.CommandSender;
 
@@ -59,52 +61,52 @@ public class MessageLib extends YToString
 	
 	public boolean standardMessage(String msg)
 	{
-		return sendTheMessage(cLib.parseCustom(cm.primaryColor, cm.primaryTag + msg));
+		return sendTheMessage(ColorLib.parseCustom(cm.primaryColor, cm.primaryTag + msg));
 	}
 	
 	public boolean standardMessage(String msg, String msg2)
 	{
-		return sendTheMessage(cLib.parseCustom(cm.primaryColor, cm.primaryTag + msg + ": " + cm.secondaryColor + msg2));
+		return sendTheMessage(ColorLib.parseCustom(cm.primaryColor, cm.primaryTag + msg + ": " + cm.secondaryColor + msg2));
 	}
 	
 	public boolean infiniteMessage(final String... messageArgs)
 	{
-		return sendTheMessage(cLib.parseCustom(cm.primaryColor, cm.primaryTag + toString(messageArgs)));
+		return sendTheMessage(ColorLib.parseCustom(cm.primaryColor, cm.primaryTag + toString(messageArgs)));
 	}
 	
 	public boolean standardMessage(String[] msg)
 	{
-		return sendTheMessage(cLib.parseCustom(cm.primaryColor, cm.primaryTag + super.toString(msg)));
+		return sendTheMessage(ColorLib.parseCustom(cm.primaryColor, cm.primaryTag + super.toString(msg)));
 	}
 	
 	public boolean standardMessage(List<String> msg)
 	{
-		return sendTheMessage(cLib.parseCustom(cm.primaryColor, cm.primaryTag + super.toString(msg)));
+		return sendTheMessage(ColorLib.parseCustom(cm.primaryColor, cm.primaryTag + super.toString(msg)));
 	}
 	
 	public boolean standardMessage(String prefix, List<String> msgList)
 	{
-		return sendTheMessage(cLib.parseCustom(cm.primaryColor, cm.primaryTag + prefix + super.toString(msgList)));
+		return sendTheMessage(ColorLib.parseCustom(cm.primaryColor, cm.primaryTag + prefix + super.toString(msgList)));
 	}
 	
 	public boolean standardMessage(String prefix, String[] msgList)
 	{
-		return sendTheMessage(cLib.parseCustom(cm.primaryColor, cm.primaryTag + prefix + super.toString(msgList)));
+		return sendTheMessage(ColorLib.parseCustom(cm.primaryColor, cm.primaryTag + prefix + super.toString(msgList)));
 	}
 	
 	public boolean secondaryMessage(String msg)
 	{
-		return sendTheMessage(cLib.parseCustom(cm.secondaryColor, cm.secondaryTag + msg));
+		return sendTheMessage(ColorLib.parseCustom(cm.secondaryColor, cm.secondaryTag + msg));
 	}
 	
 	public boolean standardError(String msg)
 	{
-		return sendTheMessage(cLib.parseCustom(cm.secondaryColor, cm.errorTag + msg));
+		return sendTheMessage(ColorLib.parseCustom(cm.secondaryColor, cm.errorTag + msg));
 	}
 	
 	public boolean infiniteError(final String... messageArgs)
 	{
-		return sendTheMessage(cLib.parseCustom(cm.secondaryColor, cm.errorTag + toString(messageArgs)));
+		return sendTheMessage(ColorLib.parseCustom(cm.secondaryColor, cm.errorTag + toString(messageArgs)));
 	}
 	
 	public boolean standardHeader(String... msg)
@@ -112,12 +114,12 @@ public class MessageLib extends YToString
 		for (int i = 0; i < msg.length; i++)
 			msg[i] = cm.headerColor + msg[i];
 		
-		return sendTheMessage(cLib.parseCustom(cm.secondaryColor, cm.headerPrefix + super.toString(msg) + cm.headerSuffix));
+		return sendTheMessage(ColorLib.parseCustom(cm.secondaryColor, cm.headerPrefix + super.toString(msg) + cm.headerSuffix));
 	}
 	
 	public boolean displayFormattedList(List<String> msg)
 	{
-		return sendTheMessage(cLib.parseCustom(cm.primaryColor, cm.primaryTag + super.toString(msg)));
+		return sendTheMessage(ColorLib.parseCustom(cm.primaryColor, cm.primaryTag + super.toString(msg)));
 	}
 	
 	public boolean displayLocation(String header, Location loc)

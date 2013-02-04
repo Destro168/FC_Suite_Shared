@@ -6,7 +6,7 @@ import org.bukkit.ChatColor;
 
 public class ColorLib
 {
-	public String parse(String line)
+	public static String parse(String line)
 	{
 		//Replace colors
 		line = line.replaceAll("&0", ChatColor.BLACK + "");
@@ -35,7 +35,7 @@ public class ColorLib
 		return line;
 	}
 	
-	public String parseCustom(String color, String line)
+	public static String parseCustom(String color, String line)
 	{
 		line = color + line;
 		SuiteConfig cm = new SuiteConfig();
@@ -47,7 +47,7 @@ public class ColorLib
 		return line;
 	}
 	
-	public String removeColors(String line)
+	public static String removeColors(String line)
 	{
 		//Replace colors
 		line = line.replaceAll(ChatColor.BLACK + "", "");
@@ -70,7 +70,7 @@ public class ColorLib
 		return line;
 	}
 	
-	public String removeColorCodes(String line)
+	public static String removeColorCodes(String line)
 	{
 		line = line.replaceAll("&0", "");
 		line = line.replaceAll("&1", "");
@@ -121,7 +121,7 @@ public class ColorLib
 		return line;
 	}
 	
-	public String getRandomColor()
+	public static String getRandomColor()
 	{
 		Random r = new Random();
 		

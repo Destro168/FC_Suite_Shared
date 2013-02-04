@@ -1,5 +1,15 @@
 ~ FC_Suite_Shared Version History ~
 
+-------------------------------------------------------------------
+Version 2.56:
+-------------------------------------------------------------------
+General:
+- Removed logwrapper object from FC_suite_shared.java.
+- Updated a class in logwrapper to not use that object.
+- Removed dot suffix from ListGetter class.
+
+-------------------------------------------------------------------
+
 Version 2.55:
 
 - ColorLib method /removeColors() now strips out colors regardless of format.

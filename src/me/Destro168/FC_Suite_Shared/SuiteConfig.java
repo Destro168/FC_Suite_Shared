@@ -5,7 +5,6 @@ import me.Destro168.FC_Suite_Shared.ConfigManagers.FileConfigurationWrapper;
 public class SuiteConfig 
 {
 	private FileConfigurationWrapper fcw;
-	private ColorLib cLib = new ColorLib();
 	
 	public String ultimatePrefixTagText;
 	public String broadcastTag;
@@ -63,8 +62,8 @@ public class SuiteConfig
 			fcw.set("headerColor", "&b&l&o");
 		}
 		
-		if (getVersion() < 2.56)
-			setVersion(2.56);
+		if (getVersion() < 2.57)
+			setVersion(2.57);
 		
 		if (fcw.getBoolean("RestoreDefaultColors") == true)
 			restoreDefaultColors();
@@ -95,15 +94,15 @@ public class SuiteConfig
 		
 		if (isEmpty(ultimatePrefixTagText))
 		{
-			primaryTag = cLib.parse("" + primaryColor);
-			secondaryTag = cLib.parse("" + secondaryColor);
-			errorTag = cLib.parse("" + errorColor);
+			primaryTag = ColorLib.parse("" + primaryColor);
+			secondaryTag = ColorLib.parse("" + secondaryColor);
+			errorTag = ColorLib.parse("" + errorColor);
 		}
 		else
 		{
-			primaryTag = cLib.parse(bracketColor + "[" + primaryColor + ultimatePrefixTagText + bracketColor + "] " + primaryColor);
-			secondaryTag = cLib.parse(bracketColor + "[" + secondaryColor + ultimatePrefixTagText + bracketColor + "] " + secondaryColor);
-			errorTag = cLib.parse(bracketColor + "[" + errorColor + ultimatePrefixTagText + bracketColor + "] " + errorColor);
+			primaryTag = ColorLib.parse(bracketColor + "[" + primaryColor + ultimatePrefixTagText + bracketColor + "] " + primaryColor);
+			secondaryTag = ColorLib.parse(bracketColor + "[" + secondaryColor + ultimatePrefixTagText + bracketColor + "] " + secondaryColor);
+			errorTag = ColorLib.parse(bracketColor + "[" + errorColor + ultimatePrefixTagText + bracketColor + "] " + errorColor);
 		}
 	}
 	

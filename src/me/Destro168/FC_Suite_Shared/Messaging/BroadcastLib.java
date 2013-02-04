@@ -2,6 +2,7 @@ package me.Destro168.FC_Suite_Shared.Messaging;
 
 import java.util.List;
 
+import me.Destro168.FC_Suite_Shared.ColorLib;
 import me.Destro168.FC_Suite_Shared.SuiteConfig;
 import me.Destro168.FC_Suite_Shared.PermissionManager;
 
@@ -14,32 +15,32 @@ public class BroadcastLib extends YToString
 	
 	public boolean infiniteBroadcast(String... msg)
 	{
-		Bukkit.getServer().broadcastMessage(cLib.parseCustom(cm.primaryColor, cm.broadcastTag + toString(msg)));
+		Bukkit.getServer().broadcastMessage(ColorLib.parseCustom(cm.primaryColor, cm.broadcastTag + toString(msg)));
 		return true;
 	}
 	
 	public boolean standardBroadcast(String msg)
 	{
-		Bukkit.getServer().broadcastMessage(cLib.parseCustom(cm.primaryColor, cm.broadcastTag + msg));
+		Bukkit.getServer().broadcastMessage(ColorLib.parseCustom(cm.primaryColor, cm.broadcastTag + msg));
 		return true;
 	}
 	
 	public boolean standardBroadcast(String[] msg)
 	{
-		Bukkit.getServer().broadcastMessage(cLib.parseCustom(cm.primaryColor, cm.broadcastTag + super.toString(msg)));
+		Bukkit.getServer().broadcastMessage(ColorLib.parseCustom(cm.primaryColor, cm.broadcastTag + super.toString(msg)));
 		return true;
 	}
 	
 	public boolean standardBroadcast(List<String> msg)
 	{
-		Bukkit.getServer().broadcastMessage(cLib.parseCustom(cm.primaryColor, cm.broadcastTag + super.toString(msg)));
+		Bukkit.getServer().broadcastMessage(ColorLib.parseCustom(cm.primaryColor, cm.broadcastTag + super.toString(msg)));
 		return true;
 	}
 	
 	public boolean errorBroadcast(String msg)
 	{
 		SuiteConfig cm = new SuiteConfig();
-		Bukkit.getServer().broadcastMessage(cLib.parseCustom(cm.primaryColor, cm.errorBroadcastTag + msg));
+		Bukkit.getServer().broadcastMessage(ColorLib.parseCustom(cm.primaryColor, cm.errorBroadcastTag + msg));
 		return true;
 	}
 	
@@ -52,7 +53,7 @@ public class BroadcastLib extends YToString
 			perms = new PermissionManager(staff);
 			
 			if (perms.isGlobalAdmin())
-				staff.sendMessage(cLib.parseCustom(cm.primaryColor, cm.adminBroadcastTag + msg));
+				staff.sendMessage(ColorLib.parseCustom(cm.primaryColor, cm.adminBroadcastTag + msg));
 		}
 		
 		return true;
