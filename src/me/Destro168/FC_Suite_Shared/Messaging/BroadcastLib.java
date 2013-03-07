@@ -15,32 +15,32 @@ public class BroadcastLib extends YToString
 	
 	public boolean infiniteBroadcast(String... msg)
 	{
-		Bukkit.getServer().broadcastMessage(ColorLib.parseCustom(cm.primaryColor, cm.broadcastTag + toString(msg)));
+		Bukkit.getServer().broadcastMessage(ColorLib.parseCustom(cm.getColorPrimary(), cm.getTextBroadcastStandard() + toString(msg)));
 		return true;
 	}
 	
 	public boolean standardBroadcast(String msg)
 	{
-		Bukkit.getServer().broadcastMessage(ColorLib.parseCustom(cm.primaryColor, cm.broadcastTag + msg));
+		Bukkit.getServer().broadcastMessage(ColorLib.parseCustom(cm.getColorPrimary(), cm.getTextBroadcastStandard() + msg));
 		return true;
 	}
 	
 	public boolean standardBroadcast(String[] msg)
 	{
-		Bukkit.getServer().broadcastMessage(ColorLib.parseCustom(cm.primaryColor, cm.broadcastTag + super.toString(msg)));
+		Bukkit.getServer().broadcastMessage(ColorLib.parseCustom(cm.getColorPrimary(), cm.getTextBroadcastStandard() + super.toString(msg)));
 		return true;
 	}
 	
 	public boolean standardBroadcast(List<String> msg)
 	{
-		Bukkit.getServer().broadcastMessage(ColorLib.parseCustom(cm.primaryColor, cm.broadcastTag + super.toString(msg)));
+		Bukkit.getServer().broadcastMessage(ColorLib.parseCustom(cm.getColorPrimary(), cm.getTextBroadcastStandard() + super.toString(msg)));
 		return true;
 	}
 	
 	public boolean errorBroadcast(String msg)
 	{
 		SuiteConfig cm = new SuiteConfig();
-		Bukkit.getServer().broadcastMessage(ColorLib.parseCustom(cm.primaryColor, cm.errorBroadcastTag + msg));
+		Bukkit.getServer().broadcastMessage(ColorLib.parseCustom(cm.getColorPrimary(), cm.getTextBroadcastError() + msg));
 		return true;
 	}
 	
@@ -53,7 +53,7 @@ public class BroadcastLib extends YToString
 			perms = new PermissionManager(staff);
 			
 			if (perms.isGlobalAdmin())
-				staff.sendMessage(ColorLib.parseCustom(cm.primaryColor, cm.adminBroadcastTag + msg));
+				staff.sendMessage(ColorLib.parseCustom(cm.getColorPrimary(), cm.adminBroadcastTag + msg));
 		}
 		
 		return true;

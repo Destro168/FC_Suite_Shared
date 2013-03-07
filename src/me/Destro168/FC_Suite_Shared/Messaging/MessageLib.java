@@ -61,76 +61,87 @@ public class MessageLib extends YToString
 	
 	public boolean standardMessage(String msg)
 	{
-		return sendTheMessage(ColorLib.parseCustom(cm.primaryColor, cm.primaryTag + msg));
+		return sendTheMessage(ColorLib.parseCustom(cm.getColorPrimary(), cm.primaryTag + msg));
 	}
 	
 	public boolean standardMessage(String msg, String msg2)
 	{
-		return sendTheMessage(ColorLib.parseCustom(cm.primaryColor, cm.primaryTag + msg + ": " + cm.secondaryColor + msg2));
+		return sendTheMessage(ColorLib.parseCustom(cm.getColorPrimary(), cm.primaryTag + msg + ": " + cm.getColorSecondary() + msg2));
 	}
 	
 	public boolean infiniteMessage(final String... messageArgs)
 	{
-		return sendTheMessage(ColorLib.parseCustom(cm.primaryColor, cm.primaryTag + toString(messageArgs)));
+		return sendTheMessage(ColorLib.parseCustom(cm.getColorPrimary(), cm.primaryTag + toString(messageArgs)));
 	}
 	
 	public boolean standardMessage(String[] msg)
 	{
-		return sendTheMessage(ColorLib.parseCustom(cm.primaryColor, cm.primaryTag + super.toString(msg)));
+		return sendTheMessage(ColorLib.parseCustom(cm.getColorPrimary(), cm.primaryTag + super.toString(msg)));
 	}
 	
 	public boolean standardMessage(List<String> msg)
 	{
-		return sendTheMessage(ColorLib.parseCustom(cm.primaryColor, cm.primaryTag + super.toString(msg)));
+		return sendTheMessage(ColorLib.parseCustom(cm.getColorPrimary(), cm.primaryTag + super.toString(msg)));
 	}
 	
 	public boolean standardMessage(String prefix, List<String> msgList)
 	{
-		return sendTheMessage(ColorLib.parseCustom(cm.primaryColor, cm.primaryTag + prefix + super.toString(msgList)));
+		return sendTheMessage(ColorLib.parseCustom(cm.getColorPrimary(), cm.primaryTag + prefix + super.toString(msgList)));
 	}
 	
 	public boolean standardMessage(String prefix, String[] msgList)
 	{
-		return sendTheMessage(ColorLib.parseCustom(cm.primaryColor, cm.primaryTag + prefix + super.toString(msgList)));
+		return sendTheMessage(ColorLib.parseCustom(cm.getColorPrimary(), cm.primaryTag + prefix + super.toString(msgList)));
 	}
 	
 	public boolean secondaryMessage(String msg)
 	{
-		return sendTheMessage(ColorLib.parseCustom(cm.secondaryColor, cm.secondaryTag + msg));
+		return sendTheMessage(ColorLib.parseCustom(cm.getColorSecondary(), cm.secondaryTag + msg));
 	}
 	
 	public boolean standardError(String msg)
 	{
-		return sendTheMessage(ColorLib.parseCustom(cm.secondaryColor, cm.errorTag + msg));
+		return sendTheMessage(ColorLib.parseCustom(cm.getColorSecondary(), cm.errorTag + msg));
 	}
 	
 	public boolean infiniteError(final String... messageArgs)
 	{
-		return sendTheMessage(ColorLib.parseCustom(cm.secondaryColor, cm.errorTag + toString(messageArgs)));
+		return sendTheMessage(ColorLib.parseCustom(cm.getColorSecondary(), cm.errorTag + toString(messageArgs)));
 	}
 	
 	public boolean standardHeader(String... msg)
 	{
 		for (int i = 0; i < msg.length; i++)
-			msg[i] = cm.headerColor + msg[i];
+			msg[i] = cm.getColorHeaders() + msg[i];
 		
-		return sendTheMessage(ColorLib.parseCustom(cm.secondaryColor, cm.headerPrefix + super.toString(msg) + cm.headerSuffix));
+		return sendTheMessage(ColorLib.parseCustom(cm.getColorSecondary(), cm.getTextHeadersPrefix() + super.toString(msg) + cm.getTextHeadersSuffix()));
 	}
 	
 	public boolean displayFormattedList(List<String> msg)
 	{
-		return sendTheMessage(ColorLib.parseCustom(cm.primaryColor, cm.primaryTag + super.toString(msg)));
+		return sendTheMessage(ColorLib.parseCustom(cm.getColorPrimary(), cm.primaryTag + super.toString(msg)));
 	}
 	
-	public boolean displayLocation(String header, Location loc)
+	public boolean displayLocation(String msg, Location loc)
 	{
 		if (loc == null)
 			return true;
 		
 		DecimalFormat df = new DecimalFormat("#.###");
 		
-		return standardMessage(header + " -> [N]: " + loc.getWorld().getName() + " [X]: " + df.format(loc.getX()) + " [Y]: " + df.format(loc.getY()) + " [Z]: " +
-				df.format(loc.getZ()) + " [Yaw]: " + df.format(loc.getYaw()) + " [Pitch]: " + df.format(loc.getPitch()));
+		return infiniteMessage(msg," -> [Name]: ",loc.getWorld().getName()," [X]: ",df.format(loc.getX())," [Y]: ",df.format(loc.getY())," [Z]: ",
+				df.format(loc.getZ())," [Yaw]: ",df.format(loc.getYaw())," [Pitch]: ",df.format(loc.getPitch()));
+	}
+	
+	public boolean infiniteLocation(Location loc, String... msg)
+	{
+		if (loc == null)
+			return true;
+		
+		DecimalFormat df = new DecimalFormat("#.###");
+		
+		return infiniteMessage(toString(msg)," -> [Name]: ",loc.getWorld().getName()," [X]: ",df.format(loc.getX())," [Y]: ",df.format(loc.getY())," [Z]: ",
+				df.format(loc.getZ())," [Yaw]: ",df.format(loc.getYaw())," [Pitch]: ",df.format(loc.getPitch()));
 	}
 	
 	private boolean sendTheMessage(String msg)

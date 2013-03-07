@@ -8,7 +8,6 @@ import java.util.Map;
 import java.util.logging.Level;
 
 import me.Destro168.FC_Suite_Shared.FC_Suite_Shared;
-import me.Destro168.FC_Suite_Shared.Messaging.LogWrapper;
 
 import org.bukkit.Location;
 import org.bukkit.configuration.file.FileConfiguration;
@@ -16,14 +15,8 @@ import org.bukkit.configuration.file.YamlConfiguration;
 
 public class FileConfigurationWrapper
 {
+	// General
 	private FC_Suite_Shared plugin;
-	private FileConfiguration config;
-	private File trueFile;
-	private String target;
-	private String absoluteFolderPath;
-	private FileConfigPlus fcp;
-	
-	private StringToY converter;
 	
 	private Map<String, Integer> staticIntMap = new HashMap<String, Integer>();
 	private Map<String, Short> staticShortMap = new HashMap<String, Short>();
@@ -37,7 +30,15 @@ public class FileConfigurationWrapper
 	private Map<String, List<Double>> staticDoubleListMap = new HashMap<String, List<Double>>();
 	private Map<String, List<Byte>> staticByteListMap = new HashMap<String, List<Byte>>();
 	
-	public void setAbsoluteFolderPath(String x) { absoluteFolderPath = x; }
+	// Flatfile based.
+	public FileConfiguration config;
+	public File trueFile;
+	public String target;
+	public String absoluteFolderPath;
+	public FileConfigPlus fcp;
+	public StringToY converter;
+	
+    // Methods
 	public FileConfiguration getConfig() { return config; }
 	
 	public FileConfigurationWrapper(String absoluteFolderPath_, String target_)
@@ -52,7 +53,7 @@ public class FileConfigurationWrapper
 		// Load up the custom config.
 		loadCustomConfig();
 	}
-
+	
 	private void loadCustomConfig()
 	{
 		if (absoluteFolderPath.equals(""))
@@ -102,9 +103,6 @@ public class FileConfigurationWrapper
 	// Clear specific player data.
 	public void clearFileData()
 	{
-		LogWrapper log = new LogWrapper(FC_Suite_Shared.plugin.getLogger());
-		log.log(absoluteFolderPath);
-		
 		// Variable Declaration
 		File f = new File(absoluteFolderPath, target + ".yml");
 
@@ -120,24 +118,12 @@ public class FileConfigurationWrapper
 	 * 
 	 ************************************************************************************************************************************************************************************************************/
 
-	// Object
-	public void set(String field, Object o)
-	{
-		config.set(field, o);
-		saveCustomConfig();
-	}
-	
 	public void setNull(String... fields)
 	{
 		for (String s : fields)
 			config.set(s, null);
 	
 		saveCustomConfig();
-	}
-	
-	public Object get(String field)
-	{
-		return config.get(field);
 	}
 	
 	public boolean isSet(String field)
@@ -151,7 +137,7 @@ public class FileConfigurationWrapper
 		config.set(field, x);
 		saveCustomConfig();
 	}
-
+	
 	public Long getLong(String field)
 	{
 		return config.getLong(field);
@@ -254,12 +240,12 @@ public class FileConfigurationWrapper
 	}
 
 	// Int
-	public void set(String field, int x)
+	public void set(String prefix, String field, int x)
 	{
-		config.set(field, x);
+		config.set(prefix + field, x);
 		saveCustomConfig();
 	}
-
+	
 	public int getInt(String field)
 	{
 		return config.getInt(field);

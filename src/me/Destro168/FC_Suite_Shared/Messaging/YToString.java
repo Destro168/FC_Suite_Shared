@@ -28,9 +28,9 @@ public class YToString
 			if (msg.get(i) != null)
 			{
 				if (alternate == true)
-					message += cm.primaryColor + "" + msg.get(i);
+					message += cm.getColorPrimary() + "" + msg.get(i);
 				else if (alternate == false)
-					message += cm.secondaryColor + "" + msg.get(i);
+					message += cm.getColorSecondary() + "" + msg.get(i);
 				
 				alternate = !alternate;
 			}
@@ -51,9 +51,9 @@ public class YToString
 			if (msg[i] != null)
 			{
 				if (alternate == true)
-					message += cm.primaryColor + "" + msg[i];
+					message += cm.getColorPrimary() + "" + msg[i];
 				else if (alternate == false)
-					message += cm.secondaryColor + "" + msg[i];
+					message += cm.getColorSecondary() + "" + msg[i];
 				
 				alternate = !alternate;
 			}

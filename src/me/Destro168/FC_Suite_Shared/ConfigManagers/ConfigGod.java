@@ -13,6 +13,8 @@ public class ConfigGod
 	{
 		//Initialize variables.
 		prefix = target + ".";
+		
+		// Initialize the FCW.
 		fcw = new FileConfigurationWrapper(path, target);
 	}
 }

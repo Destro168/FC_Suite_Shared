@@ -19,7 +19,7 @@ public class LogWrapper
 		startTime = System.nanoTime();
 	}
 	
-	public void log(Object text)
+	public void l(Object text)
 	{
 		if (text == null)
 			text = "Null";
@@ -28,7 +28,7 @@ public class LogWrapper
 			log.severe("[DEBUG] " + String.valueOf(text));
 	}
 	
-	public void logText(Object text)
+	public void lt(Object text)
 	{
 		if (text == null)
 			text = "Null";
@@ -36,7 +36,7 @@ public class LogWrapper
 		log.severe(String.valueOf(text));
 	}
 	
-	public void logCount()
+	public void lc()
 	{
 		if (FC_Suite_Shared.sc.getDebug() == true)
 		{
@@ -45,7 +45,7 @@ public class LogWrapper
 		}
 	}
 	
-	public void logCount2()
+	public void lc2()
 	{
 		if (FC_Suite_Shared.sc.getDebug() == true)
 		{
@@ -54,12 +54,12 @@ public class LogWrapper
 		}
 	}
 	
-	public void timeStart()
+	public void ts()
 	{
 		startTime = System.nanoTime();
 	}
 	
-	public void timeEnd(String x)
+	public void te(String x)
 	{
 		if (FC_Suite_Shared.sc.getDebug() == true)
 			log.severe("[TIME END - "+x+"]: " + (System.nanoTime() - startTime) + "");

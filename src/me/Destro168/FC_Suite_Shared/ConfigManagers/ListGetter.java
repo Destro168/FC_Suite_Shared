@@ -7,6 +7,8 @@ import org.bukkit.Location;
 
 public class ListGetter
 {
+	final private int BREAK_COUNTER_LIMIT = 100;
+	
 	FileConfigurationWrapper fcw;
 	String field;
 	int breakCounter;
@@ -30,7 +32,7 @@ public class ListGetter
 			{
 				breakCounter++;
 				
-				if (breakCounter > 50)
+				if (breakCounter > BREAK_COUNTER_LIMIT)
 					return a;
 			}
 		}
@@ -51,7 +53,7 @@ public class ListGetter
 			} catch (NullPointerException e) {
 				breakCounter++;
 				
-				if (breakCounter > 50)
+				if (breakCounter > BREAK_COUNTER_LIMIT)
 					return a;
 			}
 		}
@@ -74,11 +76,23 @@ public class ListGetter
 			{
 				breakCounter++;
 				
-				if (breakCounter > 50)
+				if (breakCounter > BREAK_COUNTER_LIMIT)
 					return a;
 			}
 		}
 		
 		return a;
+	}
+	
+	public static int attemptGetEntryFieldByNumberInput(List<Integer> fieldList, String input)
+	{
+		int intInput;
+		
+		try { intInput = Integer.valueOf(input); } catch (NumberFormatException e) { return -1; }
+		
+		if (intInput > -1 && intInput < fieldList.size())
+			return intInput;
+		
+		return -1;
 	}
 }

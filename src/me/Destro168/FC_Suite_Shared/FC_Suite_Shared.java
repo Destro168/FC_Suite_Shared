@@ -40,14 +40,8 @@ public class FC_Suite_Shared extends JavaPlugin
 		//This is the suite config.
 		sc = new SuiteConfig();
 		
-		//Log success.
-		this.getLogger().info("Successfully found Vault. Enabled Successfully");
-		
-	    try {
-			new AutoUpdate(this);
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
+	    //Log success.
+	    this.getLogger().info("Successfully found Vault. Fully Enabled");
 	}
 	
 	public class CommandGod implements CommandExecutor
@@ -66,7 +60,6 @@ public class FC_Suite_Shared extends JavaPlugin
 			return true;
 	    }
 	}
-	
 	
 	private boolean setupPermissions()
     {

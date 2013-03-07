@@ -1,9 +1,9 @@
 ~ FC_Suite_Shared Changelog ~
 
 -------------------------------------------------------------------
-Version 2.57:
+Version 3.0:
 -------------------------------------------------------------------
 General:
-- All colorlib methods are now static.
+- Delete your FC_Suite_Shared config. Make a backup though if you want to save old settings.
 
 -------------------------------------------------------------------
